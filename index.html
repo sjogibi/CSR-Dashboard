@@ -3,187 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tampa: Apollo & Consult Review</title>
+    <title>IBI Clinic - February Performance Audit 2025-2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .chart-bar { transition: height 1s ease-in-out, width 1s ease-in-out; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .chart-container { position: relative; height: 350px; width: 100%; }
+        .tab-content { display: none; transition: opacity 0.3s ease; }
+        .active-tab { display: block; opacity: 1; }
+        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased min-h-screen p-4 md:p-8">
+<body class="p-4 md:p-8 text-slate-800 antialiased">
 
-    <div class="max-w-6xl mx-auto">
-        <!-- Header -->
-        <header class="mb-8 border-b border-slate-200 pb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-                <h1 class="text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
-                    Tampa: Apollo & Consult Review
-                </h1>
-                <p class="text-slate-500 mt-1 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    Snapshot: Jan 1st – Jan 14th/15th (YOY)
-                </p>
+    <!-- HEADER & NAVIGATION -->
+    <div class="max-w-7xl mx-auto mb-10">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                    <div class="bg-indigo-600 p-2 rounded-lg text-white shadow-lg shadow-indigo-200">
+                        <i data-lucide="calendar-days" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest">IBI CLINIC STRATEGIC AUDIT</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">February Performance <span class="text-indigo-600">2025 vs 2026</span></h1>
+                <p class="text-slate-500 font-medium italic">Monthly Snapshot: Current MTD Efficiency vs. Prior Year</p>
             </div>
-            <div class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md self-start">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                <span class="font-semibold uppercase tracking-wider text-sm">Tampa Location</span>
-            </div>
-        </header>
-
-        <!-- Apollo Leads Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <!-- 2025 Leads -->
-            <div class="bg-gradient-to-br from-indigo-600 to-blue-700 p-6 rounded-2xl shadow-lg text-white">
-                <div class="flex justify-between items-center mb-4 text-blue-100 uppercase text-[10px] font-bold tracking-widest">
-                    <span>Apollo Leads 2025</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <h3 class="text-4xl font-black">56</h3>
-                <p class="text-blue-100 text-sm mt-1">Total Leads (Jan 1-14)</p>
-                <div class="mt-4 pt-4 border-t border-white/10 text-xs text-blue-100">
-                    Conversion Rate: <span class="font-bold">26.8%</span>
-                </div>
-            </div>
-
-            <!-- 2026 Leads -->
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl shadow-lg text-white">
-                <div class="flex justify-between items-center mb-4 text-slate-400 uppercase text-[10px] font-bold tracking-widest">
-                    <span>Apollo Leads 2026</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <h3 class="text-4xl font-black">33</h3>
-                <p class="text-slate-300 text-sm mt-1">Total Leads (Jan 1-14)</p>
-                <div class="mt-4 pt-4 border-t border-white/10 text-xs text-slate-300">
-                    Conversion Rate: <span class="font-bold">9.1%</span>
-                </div>
-            </div>
-
-            <!-- Leads Growth -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex justify-between items-center mb-4 text-slate-400 uppercase text-[10px] font-bold tracking-widest">
-                    <span>Leads YOY Change</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>
-                </div>
-                <div class="flex items-center gap-1">
-                    <h3 class="text-4xl font-black text-slate-800">-41.1%</h3>
-                </div>
-                <p class="text-slate-500 text-sm mt-1">Lead Volume vs. Previous Year</p>
+            
+            <div class="flex items-center p-1.5 bg-white rounded-2xl shadow-xl border border-slate-200">
+                <button onclick="switchTab('overview')" id="btn-overview" class="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-wider bg-slate-900 text-white shadow-lg">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
+                </button>
+                <button onclick="switchTab('details')" id="btn-details" class="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-wider text-slate-500 hover:bg-slate-50">
+                    <i data-lucide="file-text" class="w-4 h-4"></i> Strategic Report
+                </button>
             </div>
         </div>
-
-        <!-- Consultation Metrics -->
-        <h2 class="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-            Consultation Performance
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-center">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Consults 2025</span>
-                <h3 class="text-3xl font-black text-slate-800">15</h3>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 ring-2 ring-blue-500/20">
-                <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-2">Consults 2026</span>
-                <h3 class="text-3xl font-black text-slate-800">3</h3>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Growth Rate</span>
-                <h3 class="text-3xl font-black text-red-600">-80.0%</h3>
-            </div>
-            <div class="bg-slate-100 p-6 rounded-2xl border border-slate-200">
-                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-2">Jan 26 Projection</span>
-                <h3 class="text-3xl font-black text-slate-800">6</h3>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <!-- Visual Volume Comparison -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <h2 class="text-lg font-bold mb-8 flex items-center gap-2">
-                    Volume Comparison (Mid-Month)
-                </h2>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-tighter text-slate-500">
-                            <span>Apollo Leads</span>
-                            <span>33 <span class="text-slate-300 font-normal">vs</span> 56</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden">
-                            <div class="bg-indigo-500 h-full chart-bar" style="width: 58.9%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs font-bold mb-2 uppercase tracking-tighter text-slate-500">
-                            <span>Consultations</span>
-                            <span>3 <span class="text-slate-300 font-normal">vs</span> 15</span>
-                        </div>
-                        <div class="w-full bg-slate-100 h-4 rounded-full overflow-hidden">
-                            <div class="bg-blue-600 h-full chart-bar" style="width: 20%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <p class="mt-8 text-[11px] text-slate-400 text-center uppercase font-bold tracking-widest">
-                    Data reflects activities until January 14th (Leads) and 15th (Consults)
-                </p>
-            </div>
-
-            <!-- Lead Distribution 2026 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                <h2 class="text-lg font-bold mb-6 flex items-center gap-2 text-indigo-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
-                    2026 Lead Distribution (Network)
-                </h2>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between border-b border-slate-50 pb-2">
-                        <span class="text-sm font-medium text-slate-700">Website Lead</span>
-                        <span class="text-sm font-bold text-slate-900">14</span>
-                    </div>
-                    <div class="flex items-center justify-between border-b border-slate-50 pb-2">
-                        <span class="text-sm font-medium text-slate-700">Phone Lead</span>
-                        <span class="text-sm font-bold text-slate-900">13</span>
-                    </div>
-                    <div class="flex items-center justify-between border-b border-slate-50 pb-2">
-                        <span class="text-sm font-medium text-slate-700">Returning Patient</span>
-                        <span class="text-sm font-bold text-slate-900">4</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium text-slate-700">Other Channels</span>
-                        <span class="text-sm font-bold text-slate-900">3</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service Interest -->
-        <div class="bg-white border border-slate-200 p-6 rounded-2xl">
-            <h2 class="text-lg font-bold mb-6 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Service Interest Distribution (Jan 2026)
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl text-center">
-                    <p class="text-slate-400 text-[10px] uppercase font-bold tracking-tighter mb-1">Weight Loss</p>
-                    <p class="text-xl font-black text-slate-800">12</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl text-center">
-                    <p class="text-slate-400 text-[10px] uppercase font-bold tracking-tighter mb-1">Aesthetics</p>
-                    <p class="text-xl font-black text-slate-800">4</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl text-center">
-                    <p class="text-slate-400 text-[10px] uppercase font-bold tracking-tighter mb-1">Laser Therapy</p>
-                    <p class="text-xl font-black text-slate-800">3</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-100 p-4 rounded-xl text-center">
-                    <p class="text-slate-400 text-[10px] uppercase font-bold tracking-tighter mb-1">Other</p>
-                    <p class="text-xl font-black text-slate-800">15</p>
-                </div>
-            </div>
-        </div>
-
-        <footer class="mt-8 pt-6 border-t border-slate-100 text-center text-slate-400 text-xs italic">
-            <p>Apollo CRM & Tampa Scheduler Comparison Report | Internal Use Only | Generated Jan 15, 2026</p>
-        </footer>
     </div>
 
+    <!-- MAIN CONTENT -->
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- DASHBOARD VIEW -->
+        <div id="overview" class="tab-content active-tab space-y-8">
+            
+            <!-- EXECUTIVE KPI CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i data-lucide="users-round" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-black bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full uppercase">MTD</span>
+                    </div>
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">February Sales (MTD)</p>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">8</h3>
+                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Active 2026 Intake</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i data-lucide="mouse-pointer-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-black bg-emerald-100 text-emerald-600 px-2 py-1 rounded-full uppercase">Top Source</span>
+                    </div>
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Main Intake Driver</p>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">Website</h3>
+                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Equal share with Phone</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-rose-50 text-rose-600 rounded-2xl group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-black bg-rose-100 text-rose-600 px-2 py-1 rounded-full uppercase">Current Hub</span>
+                    </div>
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Loganville MTD</p>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">5 Leads</h3>
+                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Primary operational site</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-2xl group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-[10px] font-black bg-blue-100 text-blue-600 px-2 py-1 rounded-full uppercase">Feb Baseline</span>
+                    </div>
+                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Feb 2025 (Full)</p>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">80</h3>
+                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Target benchmark</p>
+                </div>
+            </div>
+
+            <!-- COMPARISON: FEBRUARY YOY -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-10 rounded-[3.5rem] border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-8 tracking-tighter text-center">February YoY Comparison: Sales Volume</h3>
+                    <div class="chart-container">
+                        <canvas id="febYoyChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-6 font-bold uppercase tracking-widest">Current 2026 data represents early cycle intake</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-[3.5rem] border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-black text-slate-900 uppercase mb-8 tracking-tighter text-center">Top Lead Sources (Feb 2026 MTD)</h3>
+                    <div class="chart-container">
+                        <canvas id="topSourcesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REGIONAL HUB ANALYSIS (LOGANVILLE VS TAMPA) -->
+            <div class="bg-white p-12 rounded-[4rem] border border-slate-200 shadow-sm">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+                    <div>
+                        <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Location Sales Audit: Loganville vs Tampa</h3>
+                        <p class="text-slate-400 font-bold uppercase text-xs tracking-widest mt-2">February Performance: 2025 (Full) vs 2026 (MTD)</p>
+                    </div>
+                    <i data-lucide="map" class="w-10 h-10 text-indigo-500 opacity-20"></i>
+                </div>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="locationYoyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- EXTENDED VELOCITY TIMELINE (Jan 25 - Feb 26) -->
+            <div class="gradient-bg p-12 rounded-[4.5rem] shadow-2xl text-white">
+                <h3 class="text-3xl font-black uppercase tracking-tight mb-2">Extended Lead Velocity timeline</h3>
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-[0.3em] mb-12 italic">14-Month Continuous Performance Loop</p>
+                <div style="height: 400px;">
+                    <canvas id="velocityChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRATEGIC AUDIT VIEW -->
+        <div id="details" class="tab-content space-y-12">
+            <div class="bg-white p-8 md:p-20 rounded-[5rem] border border-slate-100 shadow-2xl">
+                <header class="border-b border-slate-100 pb-12 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                    <div>
+                        <h2 class="text-6xl font-black text-slate-900 tracking-tighter mb-4 uppercase">February Strategic Brief</h2>
+                        <p class="text-slate-400 font-bold uppercase tracking-widest italic">Performance Audit: February 2025 vs. February 2026</p>
+                    </div>
+                    <div class="bg-indigo-600 text-white px-8 py-4 rounded-[2rem] shadow-xl text-center">
+                        <p class="text-[10px] font-black uppercase tracking-[0.2em] mb-1">Feb 2026 MTD Count</p>
+                        <p class="text-3xl font-black">8 Leads</p>
+                    </div>
+                </header>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                    <!-- ANALYSIS: HUB PERFORMANCE -->
+                    <article class="space-y-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-slate-900 rounded-[2rem] flex items-center justify-center text-white shadow-xl shadow-slate-200">
+                                <i data-lucide="map-pin" class="w-7 h-7 text-indigo-400"></i>
+                            </div>
+                            <h3 class="text-3xl font-black text-slate-900 tracking-tight uppercase">Regional Baseline</h3>
+                        </div>
+                        <p class="text-slate-600 text-xl leading-relaxed font-medium">
+                            February 2025 was a steady month for **Loganville** (66 sales) and **Tampa** (13 sales). Early February 2026 results show a strong start in Loganville (5) and Tampa (2) within the first 72 hours of data cycle.
+                        </p>
+                        <div class="p-8 bg-indigo-50 rounded-[3rem] border border-indigo-100">
+                            <h4 class="text-indigo-900 font-black text-sm uppercase tracking-widest mb-6">Feb '26 MTD Mix</h4>
+                            <div class="space-y-4 font-bold text-indigo-900">
+                                <div class="flex justify-between items-center border-b border-indigo-200/50 pb-3">
+                                    <span>Loganville:</span>
+                                    <span class="font-black text-slate-900">5 Leads</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Tampa:</span>
+                                    <span class="font-black text-indigo-600">2 Leads</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- MANAGEMENT VERDICT & SUGGESTIONS -->
+                    <article class="space-y-10">
+                        <div class="flex items-center gap-4 text-slate-900">
+                            <div class="w-14 h-14 bg-blue-600 rounded-[2rem] flex items-center justify-center text-white shadow-xl shadow-blue-100">
+                                <i data-lucide="lightbulb" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-3xl font-black tracking-tight uppercase">February Strategy</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-white border-2 border-slate-100 p-8 rounded-[3rem] shadow-sm italic text-slate-600">
+                                <p class="text-lg font-medium leading-relaxed">
+                                    "Early February indicates a shift toward a balanced channel mix. Website and Phone leads are currently matched 1:1. The focus for Management should be sustaining this conversion momentum through the mid-month Valentine's surge period."
+                                </p>
+                            </div>
+                            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+                                <h5 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-3">Key Focus: Digital Engagement</h5>
+                                <p class="text-slate-500 text-sm font-medium">Digital referrals and Website leads already account for 50% of February's early volume. Real-time response is critical to hitting the 80-unit target by EOM.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="max-w-7xl mx-auto mt-20 text-center border-t border-slate-200 pt-10 pb-20 text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">
+        Operational Excellence Audit • February Cycle 2025-2026 • Verified MTD Data
+    </div>
+
+    <script>
+        const DATA = {
+            // Full 14-month loop
+            fullMonths: ['Jan 25', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan 26', 'Feb 26'],
+            fullTrend: [112, 80, 105, 76, 60, 89, 93, 83, 104, 89, 76, 66, 99, 8],
+
+            febYoy: {
+                labels: ['February 2025 (Full)', 'February 2026 (MTD)'],
+                data: [80, 8]
+            },
+
+            feb26Sources: [
+                { name: 'Website', volume: 3, color: '#10b981' },
+                { name: 'Phone', volume: 3, color: '#3b82f6' },
+                { name: 'Provider Ref.', volume: 1, color: '#8b5cf6' },
+                { name: 'Returning', volume: 1, color: '#f59e0b' }
+            ],
+
+            locations: {
+                labels: ['Loganville', 'Tampa'],
+                y2025: [66, 13],
+                y2026: [5, 2] // Feb 2026 MTD exacts
+            }
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-tab'));
+            document.getElementById(tabId).classList.add('active-tab');
+            const btnOverview = document.getElementById('btn-overview');
+            const btnDetails = document.getElementById('btn-details');
+            if(tabId === 'overview') {
+                btnOverview.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest bg-slate-900 text-white shadow-xl";
+                btnDetails.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest text-slate-500 hover:bg-slate-50";
+            } else {
+                btnDetails.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest bg-slate-900 text-white shadow-xl";
+                btnOverview.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest text-slate-500 hover:bg-slate-50";
+            }
+        }
+
+        window.onload = function() {
+            lucide.createIcons();
+            initCharts();
+        };
+
+        function initCharts() {
+            // 1. February YoY Comparison
+            new Chart(document.getElementById('febYoyChart'), {
+                type: 'bar',
+                data: {
+                    labels: DATA.febYoy.labels,
+                    datasets: [{
+                        label: 'Total Sales/Leads',
+                        data: DATA.febYoy.data,
+                        backgroundColor: ['#e2e8f0', '#4f46e5'],
+                        borderRadius: 15,
+                        barThickness: 60
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { display: false } } } }
+            });
+
+            // 2. Top Sources Feb 26
+            new Chart(document.getElementById('topSourcesChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: DATA.feb26Sources.map(s => s.name),
+                    datasets: [{ data: DATA.feb26Sources.map(s => s.volume), backgroundColor: DATA.feb26Sources.map(s => s.color), borderWidth: 0 }]
+                },
+                options: { cutout: '75%', plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold' } } } } }
+            });
+
+            // 3. Location Comparison
+            new Chart(document.getElementById('locationYoyChart'), {
+                type: 'bar',
+                data: {
+                    labels: DATA.locations.labels,
+                    datasets: [
+                        { label: 'Feb 2025 Sales', data: DATA.locations.y2025, backgroundColor: '#e2e8f0', borderRadius: 12 },
+                        { label: 'Feb 2026 Sales MTD', data: DATA.locations.y2026, backgroundColor: '#6366f1', borderRadius: 12 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            });
+
+            // 4. Velocity Timeline
+            new Chart(document.getElementById('velocityChart'), {
+                type: 'line',
+                data: {
+                    labels: DATA.fullMonths,
+                    datasets: [{
+                        label: 'Qualified Units', data: DATA.fullTrend, borderColor: '#6366f1', borderWidth: 8, fill: true,
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)', tension: 0.4, pointRadius: 8, pointBackgroundColor: '#fff'
+                    }]
+                },
+                options: { 
+                    responsive: true, maintainAspectRatio: false, 
+                    scales: { 
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { weight: 'bold' } } },
+                        x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { weight: 'bold' } } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
