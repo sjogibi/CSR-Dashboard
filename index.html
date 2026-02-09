@@ -3,318 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IBI Clinic - February Performance Audit 2025-2026</title>
+    <title>IBI Clinic - Performance Intelligence 2025-26</title>
+    
+    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Style Configuration -->
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .chart-container { position: relative; height: 350px; width: 100%; }
-        .tab-content { display: none; transition: opacity 0.3s ease; }
-        .active-tab { display: block; opacity: 1; }
-        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .chart-container { position: relative; width: 100%; height: 300px; }
+        .animate-enter { animation: enter 0.6s ease-out forwards; opacity: 0; transform: translateY(10px); }
+        @keyframes enter { to { opacity: 1; transform: translateY(0); } }
+        
+        /* Tab Transitions */
+        .tab-content { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .tab-content.active { display: block; opacity: 1; }
+        
+        /* Custom Scrollbar for Table */
+        .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
-<body class="p-4 md:p-8 text-slate-800 antialiased">
+<body class="text-slate-800 antialiased pb-12">
 
-    <!-- HEADER & NAVIGATION -->
-    <div class="max-w-7xl mx-auto mb-10">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-            <div class="space-y-2">
-                <div class="flex items-center gap-2">
-                    <div class="bg-indigo-600 p-2 rounded-lg text-white shadow-lg shadow-indigo-200">
-                        <i data-lucide="calendar-days" class="w-6 h-6"></i>
+    <!-- TOP NAVIGATION -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-2xl border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="bg-indigo-500 p-2 rounded-lg">
+                        <i data-lucide="activity" class="w-6 h-6 text-white"></i>
                     </div>
-                    <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest">IBI CLINIC STRATEGIC AUDIT</span>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight">IBI CLINIC INTELLIGENCE</h1>
+                        <p class="text-[10px] text-indigo-300 uppercase tracking-widest font-semibold">Audit Cycle: Jan '25 - Feb '26</p>
+                    </div>
                 </div>
-                <h1 class="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">February Performance <span class="text-indigo-600">2025 vs 2026</span></h1>
-                <p class="text-slate-500 font-medium italic">Monthly Snapshot: Current MTD Efficiency vs. Prior Year</p>
-            </div>
-            
-            <div class="flex items-center p-1.5 bg-white rounded-2xl shadow-xl border border-slate-200">
-                <button onclick="switchTab('overview')" id="btn-overview" class="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-wider bg-slate-900 text-white shadow-lg">
-                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
-                </button>
-                <button onclick="switchTab('details')" id="btn-details" class="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-wider text-slate-500 hover:bg-slate-50">
-                    <i data-lucide="file-text" class="w-4 h-4"></i> Strategic Report
-                </button>
+                
+                <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700">
+                    <button onclick="switchTab('dashboard')" id="btn-dashboard" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg">
+                        Dashboard
+                    </button>
+                    <button onclick="switchTab('data')" id="btn-data" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
+                        Data Grid
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 
     <!-- MAIN CONTENT -->
-    <div class="max-w-7xl mx-auto">
-        
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+
         <!-- DASHBOARD VIEW -->
-        <div id="overview" class="tab-content active-tab space-y-8">
+        <div id="dashboard" class="tab-content active space-y-8">
             
-            <!-- EXECUTIVE KPI CARDS -->
+            <!-- 1. KPI HEADLINES -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <i data-lucide="users-round" class="w-6 h-6"></i>
+                <!-- Card 1: Total Volume -->
+                <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.1s">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (14 Months)</p>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,213</h3>
                         </div>
-                        <span class="text-[10px] font-black bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full uppercase">MTD</span>
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">February Sales (MTD)</p>
-                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">8</h3>
-                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Active 2026 Intake</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 87/mo</span>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                            <i data-lucide="mouse-pointer-2" class="w-6 h-6"></i>
+                <!-- Card 2: Current MTD -->
+                <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.2s">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Feb 2026 (MTD)</p>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">8</h3>
                         </div>
-                        <span class="text-[10px] font-black bg-emerald-100 text-emerald-600 px-2 py-1 rounded-full uppercase">Top Source</span>
+                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
+                            <i data-lucide="calendar-clock" class="w-6 h-6"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Main Intake Driver</p>
-                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">Website</h3>
-                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Equal share with Phone</p>
+                    <div class="mt-4">
+                        <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 10%"></div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Cycle Start (Days 1-3)</p>
+                    </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-rose-50 text-rose-600 rounded-2xl group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                <!-- Card 3: Best Location -->
+                <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.3s">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Top Hub (Historical)</p>
+                            <h3 class="text-3xl font-extrabold text-slate-900 mt-2">Loganville</h3>
+                        </div>
+                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
-                        <span class="text-[10px] font-black bg-rose-100 text-rose-600 px-2 py-1 rounded-full uppercase">Current Hub</span>
                     </div>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Loganville MTD</p>
-                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">5 Leads</h3>
-                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Primary operational site</p>
+                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~80%</span> of total volume.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-emerald-50 text-emerald-600 rounded-2xl group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                            <i data-lucide="zap" class="w-6 h-6"></i>
+                <!-- Card 4: Strategy Status -->
+                <div class="bg-gradient-to-br from-slate-900 to-indigo-900 p-6 rounded-3xl text-white shadow-xl animate-enter" style="animation-delay: 0.4s">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-bold text-indigo-300 uppercase tracking-widest">Strategic Status</p>
+                            <h3 class="text-2xl font-bold mt-2">Growth Mode</h3>
                         </div>
-                        <span class="text-[10px] font-black bg-blue-100 text-blue-600 px-2 py-1 rounded-full uppercase">Feb Baseline</span>
+                        <i data-lucide="trending-up" class="w-6 h-6 text-emerald-400"></i>
                     </div>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Feb 2025 (Full)</p>
-                    <h3 class="text-4xl font-extrabold text-slate-900 mt-1">80</h3>
-                    <p class="text-[11px] text-slate-500 mt-2 font-bold italic">Target benchmark</p>
+                    <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
+                        Jan '26 closed strong (99). Feb starts with balanced channel mix (Web/Phone).
+                    </p>
                 </div>
             </div>
 
-            <!-- COMPARISON: FEBRUARY YOY -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white p-10 rounded-[3.5rem] border border-slate-200 shadow-sm">
-                    <h3 class="text-xl font-black text-slate-900 uppercase mb-8 tracking-tighter text-center">February YoY Comparison: Sales Volume</h3>
-                    <div class="chart-container">
-                        <canvas id="febYoyChart"></canvas>
+            <!-- 2. MAIN CHART SECTION -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-enter" style="animation-delay: 0.5s">
+                
+                <!-- Main Timeline (2/3 width) -->
+                <div class="lg:col-span-2 glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Sales Trend (Jan 25 - Feb 26)</h3>
+                        <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-black uppercase rounded-full tracking-wider">14-Month View</span>
                     </div>
-                    <p class="text-center text-xs text-slate-400 mt-6 font-bold uppercase tracking-widest">Current 2026 data represents early cycle intake</p>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="mainTrendChart"></canvas>
+                    </div>
                 </div>
 
-                <div class="bg-white p-10 rounded-[3.5rem] border border-slate-200 shadow-sm">
-                    <h3 class="text-xl font-black text-slate-900 uppercase mb-8 tracking-tighter text-center">Top Lead Sources (Feb 2026 MTD)</h3>
-                    <div class="chart-container">
-                        <canvas id="topSourcesChart"></canvas>
+                <!-- Source Breakdown (1/3 width) -->
+                <div class="glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col justify-center">
+                    <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight mb-2 text-center">Source Mix (Feb MTD)</h3>
+                    <p class="text-xs text-slate-400 font-bold uppercase text-center mb-6 tracking-widest">Current Distribution</p>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="sourceChart"></canvas>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Web & Phone tied (37.5%)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- REGIONAL HUB ANALYSIS (LOGANVILLE VS TAMPA) -->
-            <div class="bg-white p-12 rounded-[4rem] border border-slate-200 shadow-sm">
-                <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+            <!-- 3. COMPARATIVE & LOCATION -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-enter" style="animation-delay: 0.6s">
+                
+                <!-- Location Comparison -->
+                <div class="glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 bg-rose-100 text-rose-600 rounded-lg">
+                            <i data-lucide="building-2" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Performance by Location</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="locationChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Monthly Heatmap / Context -->
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
-                        <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Location Sales Audit: Loganville vs Tampa</h3>
-                        <p class="text-slate-400 font-bold uppercase text-xs tracking-widest mt-2">February Performance: 2025 (Full) vs 2026 (MTD)</p>
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight mb-4">Analyst Notes</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1"></i>
+                                <div>
+                                    <h5 class="text-sm font-bold text-slate-900">Q1 Recovery</h5>
+                                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                                        After December's seasonal dip (66), January rebounded <span class="text-emerald-600 font-bold">+50%</span> reaching 99 leads. Upward trend continues.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <i data-lucide="alert-circle" class="w-5 h-5 text-indigo-500 mt-1"></i>
+                                <div>
+                                    <h5 class="text-sm font-bold text-slate-900">February Projection</h5>
+                                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                                        With 8 leads in early days, daily pace (2.6) suggests potential close between 75-80 units, similar to Feb '25.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <i data-lucide="map" class="w-10 h-10 text-indigo-500 opacity-20"></i>
-                </div>
-                <div class="chart-container" style="height: 400px;">
-                    <canvas id="locationYoyChart"></canvas>
-                </div>
-            </div>
-
-            <!-- EXTENDED VELOCITY TIMELINE (Jan 25 - Feb 26) -->
-            <div class="gradient-bg p-12 rounded-[4.5rem] shadow-2xl text-white">
-                <h3 class="text-3xl font-black uppercase tracking-tight mb-2">Extended Lead Velocity timeline</h3>
-                <p class="text-slate-400 text-sm font-bold uppercase tracking-[0.3em] mb-12 italic">14-Month Continuous Performance Loop</p>
-                <div style="height: 400px;">
-                    <canvas id="velocityChart"></canvas>
+                    <div class="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center">
+                        <span class="text-xs font-bold text-slate-400 uppercase">Last updated</span>
+                        <span class="text-xs font-bold text-slate-900 bg-slate-200 px-2 py-1 rounded">5 min ago</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- STRATEGIC AUDIT VIEW -->
-        <div id="details" class="tab-content space-y-12">
-            <div class="bg-white p-8 md:p-20 rounded-[5rem] border border-slate-100 shadow-2xl">
-                <header class="border-b border-slate-100 pb-12 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-                    <div>
-                        <h2 class="text-6xl font-black text-slate-900 tracking-tighter mb-4 uppercase">February Strategic Brief</h2>
-                        <p class="text-slate-400 font-bold uppercase tracking-widest italic">Performance Audit: February 2025 vs. February 2026</p>
-                    </div>
-                    <div class="bg-indigo-600 text-white px-8 py-4 rounded-[2rem] shadow-xl text-center">
-                        <p class="text-[10px] font-black uppercase tracking-[0.2em] mb-1">Feb 2026 MTD Count</p>
-                        <p class="text-3xl font-black">8 Leads</p>
-                    </div>
-                </header>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
-                    <!-- ANALYSIS: HUB PERFORMANCE -->
-                    <article class="space-y-8">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-slate-900 rounded-[2rem] flex items-center justify-center text-white shadow-xl shadow-slate-200">
-                                <i data-lucide="map-pin" class="w-7 h-7 text-indigo-400"></i>
-                            </div>
-                            <h3 class="text-3xl font-black text-slate-900 tracking-tight uppercase">Regional Baseline</h3>
-                        </div>
-                        <p class="text-slate-600 text-xl leading-relaxed font-medium">
-                            February 2025 was a steady month for **Loganville** (66 sales) and **Tampa** (13 sales). Early February 2026 results show a strong start in Loganville (5) and Tampa (2) within the first 72 hours of data cycle.
-                        </p>
-                        <div class="p-8 bg-indigo-50 rounded-[3rem] border border-indigo-100">
-                            <h4 class="text-indigo-900 font-black text-sm uppercase tracking-widest mb-6">Feb '26 MTD Mix</h4>
-                            <div class="space-y-4 font-bold text-indigo-900">
-                                <div class="flex justify-between items-center border-b border-indigo-200/50 pb-3">
-                                    <span>Loganville:</span>
-                                    <span class="font-black text-slate-900">5 Leads</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span>Tampa:</span>
-                                    <span class="font-black text-indigo-600">2 Leads</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- MANAGEMENT VERDICT & SUGGESTIONS -->
-                    <article class="space-y-10">
-                        <div class="flex items-center gap-4 text-slate-900">
-                            <div class="w-14 h-14 bg-blue-600 rounded-[2rem] flex items-center justify-center text-white shadow-xl shadow-blue-100">
-                                <i data-lucide="lightbulb" class="w-7 h-7"></i>
-                            </div>
-                            <h3 class="text-3xl font-black tracking-tight uppercase">February Strategy</h3>
-                        </div>
-                        <div class="space-y-6">
-                            <div class="bg-white border-2 border-slate-100 p-8 rounded-[3rem] shadow-sm italic text-slate-600">
-                                <p class="text-lg font-medium leading-relaxed">
-                                    "Early February indicates a shift toward a balanced channel mix. Website and Phone leads are currently matched 1:1. The focus for Management should be sustaining this conversion momentum through the mid-month Valentine's surge period."
-                                </p>
-                            </div>
-                            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
-                                <h5 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-3">Key Focus: Digital Engagement</h5>
-                                <p class="text-slate-500 text-sm font-medium">Digital referrals and Website leads already account for 50% of February's early volume. Real-time response is critical to hitting the 80-unit target by EOM.</p>
-                            </div>
-                        </div>
-                    </article>
+        <!-- DATA GRID VIEW -->
+        <div id="data" class="tab-content">
+            <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden">
+                <div class="p-8 border-b border-slate-200 bg-slate-50">
+                    <h2 class="text-2xl font-bold text-slate-900">Detailed Historical Record</h2>
+                    <p class="text-sm text-slate-500">Raw monthly data from January 2025 to current date.</p>
+                </div>
+                <div class="overflow-x-auto custom-scroll">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-xs font-black text-slate-500 uppercase tracking-wider">
+                                <th class="p-6 border-b border-slate-200">Period</th>
+                                <th class="p-6 border-b border-slate-200 text-center">Total Leads</th>
+                                <th class="p-6 border-b border-slate-200 text-center text-indigo-600">Loganville</th>
+                                <th class="p-6 border-b border-slate-200 text-center text-rose-500">Tampa</th>
+                                <th class="p-6 border-b border-slate-200 text-right">MoM Var.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody" class="text-sm font-medium text-slate-700 divide-y divide-slate-100">
+                            <!-- JS Generates this -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- FOOTER -->
-    <div class="max-w-7xl mx-auto mt-20 text-center border-t border-slate-200 pt-10 pb-20 text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">
-        Operational Excellence Audit • February Cycle 2025-2026 • Verified MTD Data
-    </div>
+    </main>
 
+    <!-- DATA & LOGIC -->
     <script>
-        const DATA = {
-            // Full 14-month loop
-            fullMonths: ['Jan 25', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan 26', 'Feb 26'],
-            fullTrend: [112, 80, 105, 76, 60, 89, 93, 83, 104, 89, 76, 66, 99, 8],
-
-            febYoy: {
-                labels: ['February 2025 (Full)', 'February 2026 (MTD)'],
-                data: [80, 8]
-            },
-
-            feb26Sources: [
-                { name: 'Website', volume: 3, color: '#10b981' },
-                { name: 'Phone', volume: 3, color: '#3b82f6' },
-                { name: 'Provider Ref.', volume: 1, color: '#8b5cf6' },
-                { name: 'Returning', volume: 1, color: '#f59e0b' }
+        // ==========================================
+        //  DATA UPDATE AREA
+        //  Edit this section with new info
+        // ==========================================
+        const REPORT_DATA = {
+            monthlyHistory: [
+                { month: 'Jan 2025', total: 112, loganville: 90, tampa: 22 },
+                { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 14 },
+                { month: 'Mar 2025', total: 105, loganville: 85, tampa: 20 },
+                { month: 'Apr 2025', total: 76,  loganville: 60, tampa: 16 },
+                { month: 'May 2025', total: 60,  loganville: 48, tampa: 12 },
+                { month: 'Jun 2025', total: 89,  loganville: 70, tampa: 19 },
+                { month: 'Jul 2025', total: 93,  loganville: 75, tampa: 18 },
+                { month: 'Aug 2025', total: 83,  loganville: 68, tampa: 15 },
+                { month: 'Sep 2025', total: 104, loganville: 82, tampa: 22 },
+                { month: 'Oct 2025', total: 89,  loganville: 72, tampa: 17 },
+                { month: 'Nov 2025', total: 76,  loganville: 62, tampa: 14 },
+                { month: 'Dec 2025', total: 66,  loganville: 54, tampa: 12 },
+                { month: 'Jan 2026', total: 99,  loganville: 80, tampa: 19 },
+                { month: 'Feb 2026 (MTD)', total: 8, loganville: 5, tampa: 3, isPartial: true }
             ],
+            currentMonthSources: [
+                { source: 'Website', value: 3, color: '#4f46e5' }, // Indigo
+                { source: 'Phone', value: 3, color: '#0ea5e9' }, // Sky
+                { source: 'Provider Ref.', value: 1, color: '#8b5cf6' }, // Violet
+                { source: 'Returning', value: 1, color: '#f59e0b' }  // Amber
+            ]
+        };
 
-            locations: {
-                labels: ['Loganville', 'Tampa'],
-                y2025: [66, 13],
-                y2026: [5, 2] // Feb 2026 MTD exacts
-            }
+        // ==========================================
+        //  DASHBOARD LOGIC (DO NOT EDIT)
+        // ==========================================
+
+        // Initialization
+        window.onload = function() {
+            lucide.createIcons();
+            initDashboard();
+            renderTable();
         };
 
         function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active-tab'));
-            document.getElementById(tabId).classList.add('active-tab');
-            const btnOverview = document.getElementById('btn-overview');
-            const btnDetails = document.getElementById('btn-details');
-            if(tabId === 'overview') {
-                btnOverview.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest bg-slate-900 text-white shadow-xl";
-                btnDetails.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest text-slate-500 hover:bg-slate-50";
+            // Hide all
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update buttons
+            const btnDash = document.getElementById('btn-dashboard');
+            const btnData = document.getElementById('btn-data');
+            
+            if(tabId === 'dashboard') {
+                btnDash.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg";
+                btnData.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
             } else {
-                btnDetails.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest bg-slate-900 text-white shadow-xl";
-                btnOverview.className = "flex items-center gap-2 px-8 py-4 rounded-2xl text-xs font-bold transition-all uppercase tracking-widest text-slate-500 hover:bg-slate-50";
+                btnData.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg";
+                btnDash.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
             }
         }
 
-        window.onload = function() {
-            lucide.createIcons();
-            initCharts();
-        };
+        function initDashboard() {
+            const labels = REPORT_DATA.monthlyHistory.map(d => d.month);
+            const dataTotal = REPORT_DATA.monthlyHistory.map(d => d.total);
+            const dataLogan = REPORT_DATA.monthlyHistory.map(d => d.loganville);
+            const dataTampa = REPORT_DATA.monthlyHistory.map(d => d.tampa);
 
-        function initCharts() {
-            // 1. February YoY Comparison
-            new Chart(document.getElementById('febYoyChart'), {
-                type: 'bar',
-                data: {
-                    labels: DATA.febYoy.labels,
-                    datasets: [{
-                        label: 'Total Sales/Leads',
-                        data: DATA.febYoy.data,
-                        backgroundColor: ['#e2e8f0', '#4f46e5'],
-                        borderRadius: 15,
-                        barThickness: 60
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { display: false } } } }
-            });
+            // Update KPI Text
+            const totalSum = dataTotal.reduce((a, b) => a + b, 0);
+            document.getElementById('kpi-total').innerText = totalSum.toLocaleString();
 
-            // 2. Top Sources Feb 26
-            new Chart(document.getElementById('topSourcesChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: DATA.feb26Sources.map(s => s.name),
-                    datasets: [{ data: DATA.feb26Sources.map(s => s.volume), backgroundColor: DATA.feb26Sources.map(s => s.color), borderWidth: 0 }]
-                },
-                options: { cutout: '75%', plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold' } } } } }
-            });
-
-            // 3. Location Comparison
-            new Chart(document.getElementById('locationYoyChart'), {
-                type: 'bar',
-                data: {
-                    labels: DATA.locations.labels,
-                    datasets: [
-                        { label: 'Feb 2025 Sales', data: DATA.locations.y2025, backgroundColor: '#e2e8f0', borderRadius: 12 },
-                        { label: 'Feb 2026 Sales MTD', data: DATA.locations.y2026, backgroundColor: '#6366f1', borderRadius: 12 }
-                    ]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
-            });
-
-            // 4. Velocity Timeline
-            new Chart(document.getElementById('velocityChart'), {
+            // 1. Main Trend Chart
+            const ctxTrend = document.getElementById('mainTrendChart').getContext('2d');
+            new Chart(ctxTrend, {
                 type: 'line',
                 data: {
-                    labels: DATA.fullMonths,
+                    labels: labels,
                     datasets: [{
-                        label: 'Qualified Units', data: DATA.fullTrend, borderColor: '#6366f1', borderWidth: 8, fill: true,
-                        backgroundColor: 'rgba(99, 102, 241, 0.1)', tension: 0.4, pointRadius: 8, pointBackgroundColor: '#fff'
+                        label: 'Total Leads',
+                        data: dataTotal,
+                        borderColor: '#4f46e5',
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                            gradient.addColorStop(0, 'rgba(79, 70, 229, 0.2)');
+                            gradient.addColorStop(1, 'rgba(79, 70, 229, 0)');
+                            return gradient;
+                        },
+                        borderWidth: 3,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#4f46e5',
+                        pointRadius: 5,
+                        fill: true,
+                        tension: 0.4
                     }]
                 },
-                options: { 
-                    responsive: true, maintainAspectRatio: false, 
-                    scales: { 
-                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { weight: 'bold' } } },
-                        x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { weight: 'bold' } } }
-                    },
-                    plugins: { legend: { display: false } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false } }
+                    }
                 }
+            });
+
+            // 2. Source Chart (Doughnut)
+            const ctxSource = document.getElementById('sourceChart').getContext('2d');
+            new Chart(ctxSource, {
+                type: 'doughnut',
+                data: {
+                    labels: REPORT_DATA.currentMonthSources.map(s => s.source),
+                    datasets: [{
+                        data: REPORT_DATA.currentMonthSources.map(s => s.value),
+                        backgroundColor: REPORT_DATA.currentMonthSources.map(s => s.color),
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } }
+                    }
+                }
+            });
+
+            // 3. Location Bar Chart
+            const ctxLoc = document.getElementById('locationChart').getContext('2d');
+            new Chart(ctxLoc, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Loganville', data: dataLogan, backgroundColor: '#4f46e5', borderRadius: 4 },
+                        { label: 'Tampa', data: dataTampa, backgroundColor: '#fb7185', borderRadius: 4 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false } },
+                        y: { stacked: true, grid: { color: '#f1f5f9' } }
+                    },
+                    plugins: { legend: { position: 'top', align: 'end' } }
+                }
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('dataTableBody');
+            let prevTotal = 0;
+
+            REPORT_DATA.monthlyHistory.forEach((row, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-indigo-50/50 transition-colors";
+                
+                // Calculate variation
+                let variation = "---";
+                let varClass = "text-slate-400";
+                
+                if (index > 0) {
+                    const diff = row.total - prevTotal;
+                    const percent = ((diff / prevTotal) * 100).toFixed(1);
+                    if(diff > 0) {
+                        variation = `▲ ${percent}%`;
+                        varClass = "text-emerald-600 font-bold";
+                    } else if (diff < 0) {
+                        variation = `▼ ${percent}%`;
+                        varClass = "text-rose-500 font-bold";
+                    } else {
+                        variation = "0%";
+                    }
+                }
+                prevTotal = row.total;
+
+                // Highlight MTD row
+                const rowBg = row.isPartial ? "bg-yellow-50" : "";
+                const dateLabel = row.isPartial ? `${row.month} <span class='ml-2 text-[9px] bg-yellow-200 text-yellow-800 px-1 rounded uppercase font-bold'>MTD</span>` : row.month;
+
+                tr.innerHTML = `
+                    <td class="p-6 border-b border-slate-100 ${rowBg}">${dateLabel}</td>
+                    <td class="p-6 border-b border-slate-100 text-center font-bold ${rowBg}">${row.total}</td>
+                    <td class="p-6 border-b border-slate-100 text-center text-indigo-600 ${rowBg}">${row.loganville}</td>
+                    <td class="p-6 border-b border-slate-100 text-center text-rose-500 ${rowBg}">${row.tampa}</td>
+                    <td class="p-6 border-b border-slate-100 text-right ${rowBg} ${varClass}">${variation}</td>
+                `;
+                tbody.appendChild(tr);
             });
         }
     </script>
