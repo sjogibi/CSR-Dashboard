@@ -87,7 +87,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Feb 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">8</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">30</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -120,12 +120,12 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-indigo-300 uppercase tracking-widest">Strategic Status</p>
-                            <h3 class="text-2xl font-bold mt-2">Growth Mode</h3>
+                            <h3 class="text-2xl font-bold mt-2">Multi-Site</h3>
                         </div>
                         <i data-lucide="trending-up" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        Jan '26 closed strong (99). Feb starts with balanced channel mix (Web/Phone).
+                        Expansion active: Alpharetta & Brookhaven join Hudson in the Feb mix.
                     </p>
                 </div>
             </div>
@@ -181,9 +181,9 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">Q1 Recovery</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">Five-Location Strategy</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        After December's seasonal dip (66), January rebounded <span class="text-emerald-600 font-bold">+50%</span> reaching 99 leads. Upward trend continues.
+                                        Data now reflects active intake from 5 hubs. <span class="font-bold text-slate-900">Alpharetta (3)</span> and <span class="font-bold text-slate-900">Brookhaven (1)</span> have officially contributed to the Feb count.
                                     </p>
                                 </div>
                             </div>
@@ -191,9 +191,9 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="alert-circle" class="w-5 h-5 text-indigo-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">February Projection</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">Regional Split</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        With 8 leads in early days, daily pace (2.6) suggests potential close between 75-80 units, similar to Feb '25.
+                                        Loganville retains lead with 18 units (60% share). Satellite locations combined now account for 40% of intake, indicating successful diversification.
                                     </p>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                     </div>
                     <div class="mt-6 pt-6 border-t border-slate-100 flex justify-between items-center">
                         <span class="text-xs font-bold text-slate-400 uppercase">Last updated</span>
-                        <span class="text-xs font-bold text-slate-900 bg-slate-200 px-2 py-1 rounded">5 min ago</span>
+                        <span class="text-xs font-bold text-slate-900 bg-slate-200 px-2 py-1 rounded">Just now</span>
                     </div>
                 </div>
             </div>
@@ -215,14 +215,17 @@
                     <p class="text-sm text-slate-500">Raw monthly data from January 2025 to current date.</p>
                 </div>
                 <div class="overflow-x-auto custom-scroll">
-                    <table class="w-full text-left border-collapse">
+                    <table class="w-full text-left border-collapse min-w-[800px]">
                         <thead>
                             <tr class="bg-slate-100 text-xs font-black text-slate-500 uppercase tracking-wider">
                                 <th class="p-6 border-b border-slate-200">Period</th>
-                                <th class="p-6 border-b border-slate-200 text-center">Total Leads</th>
+                                <th class="p-6 border-b border-slate-200 text-center">Total</th>
                                 <th class="p-6 border-b border-slate-200 text-center text-indigo-600">Loganville</th>
                                 <th class="p-6 border-b border-slate-200 text-center text-rose-500">Tampa</th>
-                                <th class="p-6 border-b border-slate-200 text-right">MoM Var.</th>
+                                <th class="p-6 border-b border-slate-200 text-center text-emerald-600">Hudson</th>
+                                <th class="p-6 border-b border-slate-200 text-center text-amber-500">Alpha.</th>
+                                <th class="p-6 border-b border-slate-200 text-center text-cyan-500">Brook.</th>
+                                <th class="p-6 border-b border-slate-200 text-right">Var.</th>
                             </tr>
                         </thead>
                         <tbody id="dataTableBody" class="text-sm font-medium text-slate-700 divide-y divide-slate-100">
@@ -243,20 +246,24 @@
         // ==========================================
         const REPORT_DATA = {
             monthlyHistory: [
-                { month: 'Jan 2025', total: 112, loganville: 90, tampa: 22 },
-                { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 14 },
-                { month: 'Mar 2025', total: 105, loganville: 85, tampa: 20 },
-                { month: 'Apr 2025', total: 76,  loganville: 60, tampa: 16 },
-                { month: 'May 2025', total: 60,  loganville: 48, tampa: 12 },
-                { month: 'Jun 2025', total: 89,  loganville: 70, tampa: 19 },
-                { month: 'Jul 2025', total: 93,  loganville: 75, tampa: 18 },
-                { month: 'Aug 2025', total: 83,  loganville: 68, tampa: 15 },
-                { month: 'Sep 2025', total: 104, loganville: 82, tampa: 22 },
-                { month: 'Oct 2025', total: 89,  loganville: 72, tampa: 17 },
-                { month: 'Nov 2025', total: 76,  loganville: 62, tampa: 14 },
-                { month: 'Dec 2025', total: 66,  loganville: 54, tampa: 12 },
-                { month: 'Jan 2026', total: 99,  loganville: 80, tampa: 19 },
-                { month: 'Feb 2026 (MTD)', total: 8, loganville: 5, tampa: 3, isPartial: true }
+                { month: 'Jan 2025', total: 112, loganville: 90, tampa: 22, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 14, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Mar 2025', total: 105, loganville: 85, tampa: 20, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Apr 2025', total: 76,  loganville: 60, tampa: 16, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'May 2025', total: 60,  loganville: 48, tampa: 12, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Jun 2025', total: 89,  loganville: 70, tampa: 19, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Jul 2025', total: 93,  loganville: 75, tampa: 18, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                { month: 'Aug 2025', total: 83,  loganville: 68, tampa: 15, hudson: 0, alpharetta: 0, brookhaven: 0 },
+                
+                // --- UPDATED DATA (Sep 2025 - Jan 2026) ---
+                { month: 'Sep 2025', total: 132, loganville: 83, tampa: 13, hudson: 28, alpharetta: 4, brookhaven: 4 },
+                { month: 'Oct 2025', total: 105, loganville: 66, tampa: 12, hudson: 16, alpharetta: 5, brookhaven: 6 },
+                { month: 'Nov 2025', total: 89,  loganville: 58, tampa: 7, hudson: 13, alpharetta: 5, brookhaven: 6 },
+                { month: 'Dec 2025', total: 80,  loganville: 58, tampa: 5, hudson: 14, alpharetta: 2, brookhaven: 1 },
+                { month: 'Jan 2026', total: 99,  loganville: 71, tampa: 13, hudson: 14, alpharetta: 0, brookhaven: 1 },
+
+                // Feb 2026 (MTD)
+                { month: 'Feb 2026 (MTD)', total: 30, loganville: 18, tampa: 4, hudson: 4, alpharetta: 3, brookhaven: 1, isPartial: true }
             ],
             currentMonthSources: [
                 { source: 'Website', value: 3, color: '#4f46e5' }, // Indigo
@@ -278,13 +285,9 @@
         };
 
         function switchTab(tabId) {
-            // Hide all
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            
-            // Show selected
             document.getElementById(tabId).classList.add('active');
             
-            // Update buttons
             const btnDash = document.getElementById('btn-dashboard');
             const btnData = document.getElementById('btn-data');
             
@@ -302,6 +305,9 @@
             const dataTotal = REPORT_DATA.monthlyHistory.map(d => d.total);
             const dataLogan = REPORT_DATA.monthlyHistory.map(d => d.loganville);
             const dataTampa = REPORT_DATA.monthlyHistory.map(d => d.tampa);
+            const dataHudson = REPORT_DATA.monthlyHistory.map(d => d.hudson);
+            const dataAlpha = REPORT_DATA.monthlyHistory.map(d => d.alpharetta);
+            const dataBrook = REPORT_DATA.monthlyHistory.map(d => d.brookhaven);
 
             // Update KPI Text
             const totalSum = dataTotal.reduce((a, b) => a + b, 0);
@@ -373,7 +379,10 @@
                     labels: labels,
                     datasets: [
                         { label: 'Loganville', data: dataLogan, backgroundColor: '#4f46e5', borderRadius: 4 },
-                        { label: 'Tampa', data: dataTampa, backgroundColor: '#fb7185', borderRadius: 4 }
+                        { label: 'Tampa', data: dataTampa, backgroundColor: '#fb7185', borderRadius: 4 },
+                        { label: 'Hudson', data: dataHudson, backgroundColor: '#10b981', borderRadius: 4 },
+                        { label: 'Alpharetta', data: dataAlpha, backgroundColor: '#f59e0b', borderRadius: 4 }, // Amber
+                        { label: 'Brookhaven', data: dataBrook, backgroundColor: '#06b6d4', borderRadius: 4 } // Cyan
                     ]
                 },
                 options: {
@@ -415,7 +424,6 @@
                 }
                 prevTotal = row.total;
 
-                // Highlight MTD row
                 const rowBg = row.isPartial ? "bg-yellow-50" : "";
                 const dateLabel = row.isPartial ? `${row.month} <span class='ml-2 text-[9px] bg-yellow-200 text-yellow-800 px-1 rounded uppercase font-bold'>MTD</span>` : row.month;
 
@@ -424,6 +432,9 @@
                     <td class="p-6 border-b border-slate-100 text-center font-bold ${rowBg}">${row.total}</td>
                     <td class="p-6 border-b border-slate-100 text-center text-indigo-600 ${rowBg}">${row.loganville}</td>
                     <td class="p-6 border-b border-slate-100 text-center text-rose-500 ${rowBg}">${row.tampa}</td>
+                    <td class="p-6 border-b border-slate-100 text-center text-emerald-600 ${rowBg}">${row.hudson}</td>
+                    <td class="p-6 border-b border-slate-100 text-center text-amber-500 ${rowBg}">${row.alpharetta}</td>
+                    <td class="p-6 border-b border-slate-100 text-center text-cyan-500 ${rowBg}">${row.brookhaven}</td>
                     <td class="p-6 border-b border-slate-100 text-right ${rowBg} ${varClass}">${variation}</td>
                 `;
                 tbody.appendChild(tr);
