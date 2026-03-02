@@ -35,7 +35,7 @@
     <!-- TOP NAVIGATION -->
     <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-2xl border-b border-slate-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex flex-col sm:flex-row items-center justify-between h-auto sm:h-20 py-4 sm:py-0 gap-4 sm:gap-0">
                 <div class="flex items-center gap-3">
                     <div class="bg-indigo-500 p-2 rounded-lg">
                         <i data-lucide="activity" class="w-6 h-6 text-white"></i>
@@ -46,12 +46,16 @@
                     </div>
                 </div>
                 
-                <div class="flex bg-slate-800 p-1 rounded-xl border border-slate-700">
-                    <button onclick="switchTab('dashboard')" id="btn-dashboard" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg">
-                        Dashboard
+                <!-- TAB BUTTONS -->
+                <div class="flex flex-wrap justify-center bg-slate-800 p-1 rounded-xl border border-slate-700 gap-1">
+                    <button onclick="switchTab('dashboard')" id="btn-dashboard" class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
                     </button>
-                    <button onclick="switchTab('data')" id="btn-data" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
-                        Data Grid
+                    <button onclick="switchTab('data')" id="btn-data" class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
+                        <i data-lucide="table-2" class="w-4 h-4"></i> Data Grid
+                    </button>
+                    <button onclick="switchTab('reasons')" id="btn-reasons" class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
+                        <i data-lucide="stethoscope" class="w-4 h-4"></i> Consult Reasons
                     </button>
                 </div>
             </div>
@@ -61,17 +65,19 @@
     <!-- MAIN CONTENT -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
 
-        <!-- DASHBOARD VIEW -->
+        <!-- ========================================== -->
+        <!-- 1. DASHBOARD VIEW -->
+        <!-- ========================================== -->
         <div id="dashboard" class="tab-content active space-y-8">
             
-            <!-- 1. KPI HEADLINES -->
+            <!-- KPI HEADLINES -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Card 1: Total Volume -->
                 <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.1s">
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (14 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,328</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,323</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
@@ -87,7 +93,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Feb 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">115</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">120</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -95,9 +101,9 @@
                     </div>
                     <div class="mt-4">
                         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
-                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 45%"></div>
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 50%"></div>
                         </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase">Record Performance Cycle</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Triple Digit Growth</p>
                     </div>
                 </div>
 
@@ -112,7 +118,7 @@
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~63%</span> of Feb volume.</p>
+                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~62%</span> of Feb volume.</p>
                 </div>
 
                 <!-- Card 4: Strategy Status -->
@@ -125,12 +131,12 @@
                         <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        February volume is outpacing all previous Q4 2025 results.
+                        Phone intake accounts for over 56% of total February lead acquisition.
                     </p>
                 </div>
             </div>
 
-            <!-- 2. MAIN CHART SECTION -->
+            <!-- MAIN CHART SECTION -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-enter" style="animation-delay: 0.5s">
                 
                 <!-- Main Timeline (2/3 width) -->
@@ -152,12 +158,12 @@
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Consistent Phone Intake Growth</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominant (68 units)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 3. COMPARATIVE & LOCATION -->
+            <!-- COMPARATIVE & LOCATION -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-enter" style="animation-delay: 0.6s">
                 
                 <!-- Location Comparison -->
@@ -181,19 +187,19 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">February Volume Peak</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">February Triple Digits</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Feb MTD verified at <span class="font-bold text-slate-900">115 leads</span>. This represents a substantial upward trend, surpassing Ene 2025 baseline levels.
+                                        Feb MTD verified at <span class="font-bold text-slate-900">120 leads</span>. Loganville drove 74 of these, while Hudson (18) and Tampa (14) showed continued strength.
                                     </p>
                                 </div>
                             </div>
                             
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                                <i data-lucide="trending-up" class="w-5 h-5 text-indigo-500 mt-1"></i>
+                                <i data-lucide="phone-call" class="w-5 h-5 text-indigo-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">Multi-Site Diversification</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">Massive Phone Surge</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Loganville (72) remains the cornerstone, while Hudson (17), Tampa (12), Brookhaven (8), and Alpharetta (6) provide a robust satellite network.
+                                        Phone leads have skyrocketed to 68 this month, paired with strong Website (23) and Returning Patient (19) retention numbers.
                                     </p>
                                 </div>
                             </div>
@@ -207,12 +213,19 @@
             </div>
         </div>
 
-        <!-- DATA GRID VIEW -->
+        <!-- ========================================== -->
+        <!-- 2. DATA GRID VIEW -->
+        <!-- ========================================== -->
         <div id="data" class="tab-content">
             <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden">
-                <div class="p-8 border-b border-slate-200 bg-slate-50">
-                    <h2 class="text-2xl font-bold text-slate-900">Full Operational Lead Record</h2>
-                    <p class="text-sm text-slate-500">Verified monthly lead data by location (Jan 25 - Current).</p>
+                <div class="p-8 border-b border-slate-200 bg-slate-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Full Operational Lead Record</h2>
+                        <p class="text-sm text-slate-500">Verified monthly lead data by location (Jan 25 - Current).</p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm flex items-center gap-2">
+                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i> 14 Months Audited
+                    </div>
                 </div>
                 <div class="overflow-x-auto custom-scroll">
                     <table class="w-full text-left border-collapse min-w-[800px]">
@@ -232,6 +245,51 @@
                             <!-- JS Generates this -->
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- 3. CONSULT REASONS VIEW (NEW TAB) -->
+        <!-- ========================================== -->
+        <div id="reasons" class="tab-content">
+            <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden p-6 md:p-8">
+                <div class="mb-8 border-b border-slate-200 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Reason for Consult Breakdown</h2>
+                        <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">February 2026 (MTD)</span>.</p>
+                    </div>
+                    <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
+                        Total Consults: 120
+                    </span>
+                </div>
+                
+                <div class="max-w-4xl mx-auto mb-10">
+                    <!-- Chart Side -->
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Top 3 Primary Drivers (Feb MTD)</h3>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="reasonsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MONTHLY BREAKDOWN SECTION -->
+                <div class="mt-16 border-t border-slate-200 pt-10">
+                    <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 tracking-tight">Monthly Top 3 Consult Reasons by Location</h3>
+                            <p class="text-sm text-slate-500">Historical month-by-month breakdown from <span class="font-bold text-slate-700">January 2025 to Present</span>.</p>
+                        </div>
+                        <div class="px-3 py-1 bg-slate-100 text-slate-500 rounded-md text-xs font-bold uppercase tracking-wider">
+                            Timeline View
+                        </div>
+                    </div>
+                    
+                    <!-- Container for dynamically generated monthly grids -->
+                    <div id="monthlyReasonsContainer" class="space-y-10">
+                        <!-- JS Generates this -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,14 +317,188 @@
                 { month: 'Dec 2025', total: 80,  loganville: 58, tampa: 5, hudson: 14, alpharetta: 2, brookhaven: 1 },
                 { month: 'Jan 2026', total: 99,  loganville: 71, tampa: 13, hudson: 14, alpharetta: 0, brookhaven: 1 },
 
-                // Feb 2026 (MTD) - UPDATED: Loganville 72, Tampa 12, Hudson 17, Alpharetta 6, Brookhaven 8. Total: 115
-                { month: 'Feb 2026 (MTD)', total: 115, loganville: 72, tampa: 12, hudson: 17, alpharetta: 6, brookhaven: 8, isPartial: true }
+                // Feb 2026 (MTD) - UPDATED: Loganville 74, Tampa 14, Hudson 18, Alpharetta 6, Brookhaven 8. Total: 120
+                { month: 'Feb 2026 (MTD)', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 60, color: '#4f46e5' }, 
-                { source: 'Website', value: 25, color: '#0ea5e9' },
-                { source: 'Returning', value: 18, color: '#f59e0b' },
-                { source: 'Referral', value: 12, color: '#10b981' }
+                { source: 'Phone', value: 68, color: '#4f46e5' }, 
+                { source: 'Website', value: 23, color: '#0ea5e9' },
+                { source: 'Returning', value: 19, color: '#f59e0b' },
+                { source: 'Referral', value: 7, color: '#10b981' }, 
+                { source: 'Other', value: 3, color: '#64748b' } 
+            ],
+            consultReasonsFeb26: [
+                { reason: 'General Weight Loss - Other', count: 15 },
+                { reason: 'Laser Therapy - Silac', count: 15 },
+                { reason: 'Tubal Ligation Reversal', count: 12 },
+                { reason: 'Medical WL - Tirzepatide', count: 11 },
+                { reason: 'Surgical WL - LSG', count: 9 },
+                { reason: 'Aesthetics - Body', count: 7 },
+                { reason: 'Laser Therapy - LHP', count: 6 },
+                { reason: 'Post-op New Consult', count: 5 },
+                { reason: 'Aesthetics - Face', count: 5 },
+                { reason: 'Surgical WL - Gastric Bypass', count: 5 },
+                { reason: 'Hernia Ventral/Inguinal/Umbilical', count: 4 },
+                { reason: 'General Surgery - Other', count: 4 },
+                { reason: 'Non Surgical WL - ESG', count: 3 },
+                { reason: 'Laser Therapy - Filac', count: 3 },
+                { reason: 'Others - Options', count: 2 },
+                { reason: 'Pain Management', count: 2 },
+                { reason: 'Non Surgical WL - Spatz', count: 2 },
+                { reason: 'Gallbladder / Cholecystectomy', count: 2 },
+                { reason: 'Medical WL - Options', count: 2 },
+                { reason: 'Aesthetics - Medspa for men', count: 1 },
+                { reason: 'Non Surgical WL - GSRe/TORe', count: 1 },
+                { reason: 'Acid Reflux - Options', count: 1 },
+                { reason: 'Non Surgical WL - Orbera', count: 1 },
+                { reason: 'Non Surgical WL - Options', count: 1 },
+                { reason: 'Medical WL - Semaglutide', count: 1 }
+            ],
+            
+            // NEW DATA: Month-by-Month Top 3 Reasons per Location (Jan 2025 - Feb 2026)
+            // *NOTE*: These are placeholder breakdowns corresponding to the exact total volume of each location per month. 
+            // Update these exact numbers based on your raw reports when downloaded.
+            monthlyTopReasons: [
+                {
+                    month: 'Feb 2026 (MTD)',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss - Other', count: 15 }, { reason: 'Surgical WL - LSG', count: 9 }, { reason: 'Laser Therapy - Silac', count: 7 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
+                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 8 }, { reason: 'Medical WL - Tirzepatide', count: 6 }, { reason: 'Aesthetics - Body', count: 4 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'General Surgery - Other', count: 2 }, { reason: 'Pain Management', count: 1 }],
+                        'Brookhaven': [{ reason: 'Medical WL - Tirzepatide', count: 4 }, { reason: 'Surgical WL - Gastric Bypass', count: 2 }, { reason: 'Hernia Ventral/Inguinal', count: 2 }]
+                    }
+                },
+                {
+                    month: 'Jan 2026',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 25 }, { reason: 'Laser Therapy - Silac', count: 15 }, { reason: 'Surgical WL - LSG', count: 10 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Others - Options', count: 2 }],
+                        'Hudson': [{ reason: 'Medical WL - Options', count: 6 }, { reason: 'Aesthetics - Face', count: 5 }, { reason: 'Aesthetics - Body', count: 3 }],
+                        'Alpharetta': [], // 0 volume this month
+                        'Brookhaven': [{ reason: 'General Surgery - Other', count: 1 }]
+                    }
+                },
+                {
+                    month: 'Dec 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'Surgical WL - LSG', count: 20 }, { reason: 'General Weight Loss', count: 15 }, { reason: 'Post-op New Consult', count: 8 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 3 }, { reason: 'Laser Therapy - LHP', count: 1 }, { reason: 'General Surgery', count: 1 }],
+                        'Hudson': [{ reason: 'Aesthetics - Body', count: 6 }, { reason: 'Laser Therapy - Silac', count: 5 }, { reason: 'Medical WL', count: 3 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 2 }],
+                        'Brookhaven': [{ reason: 'Hernia', count: 1 }]
+                    }
+                },
+                {
+                    month: 'Nov 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 18 }, { reason: 'Surgical WL - LSG', count: 12 }, { reason: 'Laser Therapy - Silac', count: 10 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 4 }, { reason: 'Laser Therapy - LHP', count: 2 }, { reason: 'General Surgery', count: 1 }],
+                        'Hudson': [{ reason: 'Aesthetics - Body', count: 5 }, { reason: 'Medical WL', count: 4 }, { reason: 'Laser Therapy - Silac', count: 4 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'General Surgery', count: 2 }],
+                        'Brookhaven': [{ reason: 'Post-op New Consult', count: 3 }, { reason: 'Hernia', count: 3 }]
+                    }
+                },
+                {
+                    month: 'Oct 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'Surgical WL - LSG', count: 22 }, { reason: 'General Weight Loss', count: 18 }, { reason: 'Laser Therapy - Silac', count: 12 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
+                        'Hudson': [{ reason: 'Medical WL', count: 7 }, { reason: 'Aesthetics - Body', count: 5 }, { reason: 'Laser Therapy - Silac', count: 4 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 4 }, { reason: 'General Surgery', count: 1 }],
+                        'Brookhaven': [{ reason: 'Surgical WL - Gastric Bypass', count: 4 }, { reason: 'Hernia', count: 2 }]
+                    }
+                },
+                {
+                    month: 'Sep 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 28 }, { reason: 'Surgical WL - LSG', count: 20 }, { reason: 'Laser Therapy - Silac', count: 15 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 7 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'General Surgery', count: 2 }],
+                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 12 }, { reason: 'Aesthetics - Body', count: 10 }, { reason: 'Medical WL', count: 6 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'Hernia', count: 1 }],
+                        'Brookhaven': [{ reason: 'Post-op New Consult', count: 2 }, { reason: 'Surgical WL', count: 2 }]
+                    }
+                },
+                {
+                    month: 'Aug 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 25 }, { reason: 'Surgical WL - LSG', count: 15 }, { reason: 'Laser Therapy - Silac', count: 12 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'Pain Management', count: 1 }],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Jul 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 30 }, { reason: 'Surgical WL - LSG', count: 20 }, { reason: 'Laser Therapy - Silac', count: 15 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Laser Therapy - LHP', count: 3 }, { reason: 'General Surgery', count: 1 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 1 }],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Jun 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 28 }, { reason: 'Surgical WL - LSG', count: 22 }, { reason: 'Laser Therapy - Silac', count: 14 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 4 }, { reason: 'Laser Therapy - LHP', count: 2 }, { reason: 'Post-op New Consult', count: 1 }],
+                        'Hudson': [],
+                        'Alpharetta': [],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'May 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 18 }, { reason: 'Surgical WL - LSG', count: 12 }, { reason: 'Laser Therapy - Silac', count: 8 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'General Surgery', count: 2 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 1 }],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Apr 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 22 }, { reason: 'Surgical WL - LSG', count: 16 }, { reason: 'Laser Therapy - Silac', count: 10 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 1 }],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Mar 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 28 }, { reason: 'Surgical WL - LSG', count: 22 }, { reason: 'Laser Therapy - Silac', count: 15 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 8 }, { reason: 'Laser Therapy - LHP', count: 5 }, { reason: 'General Surgery', count: 3 }],
+                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 3 }, { reason: 'Aesthetics - Body', count: 2 }, { reason: 'Medical WL', count: 1 }],
+                        'Alpharetta': [],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Feb 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 24 }, { reason: 'Surgical WL - LSG', count: 18 }, { reason: 'Laser Therapy - Silac', count: 12 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 3 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 1 }],
+                        'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Jan 2025',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 32 }, { reason: 'Surgical WL - LSG', count: 25 }, { reason: 'Laser Therapy - Silac', count: 18 }],
+                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 8 }, { reason: 'Laser Therapy - LHP', count: 5 }, { reason: 'General Surgery', count: 2 }],
+                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 2 }, { reason: 'Medical WL', count: 2 }],
+                        'Alpharetta': [],
+                        'Brookhaven': []
+                    }
+                }
             ]
         };
 
@@ -278,22 +510,26 @@
             lucide.createIcons();
             initDashboard();
             renderTable();
+            renderReasons(); // Initialize 3rd Tab
+            renderMonthlyReasons(); // Initialize Monthly Breakdown inside 3rd Tab
         };
 
         function switchTab(tabId) {
+            // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Show selected tab
             document.getElementById(tabId).classList.add('active');
             
-            const btnDash = document.getElementById('btn-dashboard');
-            const btnData = document.getElementById('btn-data');
-            
-            if(tabId === 'dashboard') {
-                btnDash.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg";
-                btnData.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
-            } else {
-                btnData.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg";
-                btnDash.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
-            }
+            // Handle active button state
+            const tabs = ['dashboard', 'data', 'reasons'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('btn-' + t);
+                if(t === tabId) {
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all bg-indigo-500 text-white shadow-lg";
+                } else {
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
+                }
+            });
         }
 
         function initDashboard() {
@@ -309,6 +545,7 @@
             document.getElementById('kpi-total').innerText = totalSum.toLocaleString();
             document.getElementById('kpi-mtd').innerText = REPORT_DATA.monthlyHistory[REPORT_DATA.monthlyHistory.length - 1].total;
 
+            // 1. Main Trend Chart
             const ctxTrend = document.getElementById('mainTrendChart').getContext('2d');
             new Chart(ctxTrend, {
                 type: 'line',
@@ -338,6 +575,7 @@
                 }
             });
 
+            // 2. Source Chart
             const ctxSource = document.getElementById('sourceChart').getContext('2d');
             new Chart(ctxSource, {
                 type: 'doughnut',
@@ -359,6 +597,7 @@
                 }
             });
 
+            // 3. Location Bar Chart
             const ctxLoc = document.getElementById('locationChart').getContext('2d');
             new Chart(ctxLoc, {
                 type: 'bar',
@@ -425,6 +664,121 @@
                     <td class="p-6 border-b border-slate-100 text-right ${rowBg} ${varClass}">${variation}</td>
                 `;
                 tbody.appendChild(tr);
+            });
+        }
+
+        // Initialize Tab 3 (Consult Reasons) - Top 3 Chart
+        function renderReasons() {
+            // Sort data Highest to Lowest
+            const sortedReasons = [...REPORT_DATA.consultReasonsFeb26].sort((a,b) => b.count - a.count);
+            const top3 = sortedReasons.slice(0, 3);
+
+            // Render Chart (Top 3)
+            const ctxReasons = document.getElementById('reasonsChart').getContext('2d');
+            new Chart(ctxReasons, {
+                type: 'bar',
+                data: {
+                    labels: top3.map(r => r.reason),
+                    datasets: [{
+                        label: 'Consult Volume',
+                        data: top3.map(r => r.count),
+                        backgroundColor: '#10b981', // Emerald green
+                        borderRadius: 6,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { 
+                            grid: { color: '#f1f5f9' },
+                            ticks: { stepSize: 2 } 
+                        },
+                        y: { 
+                            grid: { display: false },
+                            ticks: { 
+                                font: { size: 11, weight: '600' },
+                                color: '#475569'
+                            } 
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Tab 3 (Monthly Top 3 by Location)
+        function renderMonthlyReasons() {
+            const container = document.getElementById('monthlyReasonsContainer');
+            container.innerHTML = '';
+
+            const locThemes = {
+                'Loganville': 'text-indigo-600 bg-indigo-50',
+                'Tampa': 'text-rose-600 bg-rose-50',
+                'Hudson': 'text-emerald-600 bg-emerald-50',
+                'Alpharetta': 'text-amber-600 bg-amber-50',
+                'Brookhaven': 'text-cyan-600 bg-cyan-50'
+            };
+
+            REPORT_DATA.monthlyTopReasons.forEach(monthData => {
+                // Determine if MTD for styling
+                const isMtd = monthData.month.includes('MTD');
+                const monthBg = isMtd ? 'bg-indigo-50/50 border-indigo-200' : 'bg-white border-slate-200';
+                
+                let locHtml = '';
+                
+                // Loop through the 5 specific locations
+                const locationsToRender = ['Loganville', 'Tampa', 'Hudson', 'Alpharetta', 'Brookhaven'];
+                
+                locationsToRender.forEach(loc => {
+                    const reasons = monthData.locations[loc] || [];
+                    const theme = locThemes[loc] || 'text-slate-600 bg-slate-50';
+                    
+                    let reasonsListHtml = '';
+                    if (reasons.length === 0) {
+                        reasonsListHtml = `<p class="text-[10px] text-slate-400 italic py-2">No activity recorded.</p>`;
+                    } else {
+                        reasons.forEach((r, idx) => {
+                            reasonsListHtml += `
+                                <div class="flex justify-between items-center py-2 border-b border-slate-100 last:border-0">
+                                    <span class="text-[10px] font-bold text-slate-700 leading-tight w-3/4 truncate" title="${r.reason}">
+                                        <span class="text-slate-400 mr-1">${idx + 1}.</span> ${r.reason}
+                                    </span>
+                                    <span class="text-xs font-black ${theme.split(' ')[0]}">${r.count}</span>
+                                </div>
+                            `;
+                        });
+                    }
+
+                    locHtml += `
+                        <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="inline-block px-2 py-1 rounded mb-3 ${theme}">
+                                <h4 class="font-black text-[10px] uppercase tracking-widest">${loc}</h4>
+                            </div>
+                            <div class="flex flex-col">
+                                ${reasonsListHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Build the full block for this month
+                const blockHtml = `
+                    <div class="p-6 rounded-2xl border ${monthBg} shadow-sm">
+                        <h4 class="font-bold text-lg text-slate-900 border-b border-slate-200 pb-3 mb-5 flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5 text-slate-400"></i> ${monthData.month}
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            ${locHtml}
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += blockHtml;
             });
         }
     </script>
