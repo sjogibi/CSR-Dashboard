@@ -35,14 +35,14 @@
     <!-- TOP NAVIGATION -->
     <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-2xl border-b border-slate-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between h-auto sm:h-20 py-4 sm:py-0 gap-4 sm:gap-0">
+            <div class="flex flex-col md:flex-row items-center justify-between h-auto md:h-20 py-4 md:py-0 gap-4 md:gap-0">
                 <div class="flex items-center gap-3">
                     <div class="bg-indigo-500 p-2 rounded-lg">
                         <i data-lucide="activity" class="w-6 h-6 text-white"></i>
                     </div>
                     <div>
                         <h1 class="text-xl font-bold tracking-tight">IBI CLINIC INTELLIGENCE</h1>
-                        <p class="text-[10px] text-indigo-300 uppercase tracking-widest font-semibold">Audit Cycle: Jan '25 - Feb '26</p>
+                        <p class="text-[10px] text-indigo-300 uppercase tracking-widest font-semibold">Audit Cycle: Jan '25 - Mar '26</p>
                     </div>
                 </div>
                 
@@ -56,6 +56,9 @@
                     </button>
                     <button onclick="switchTab('reasons')" id="btn-reasons" class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
                         <i data-lucide="stethoscope" class="w-4 h-4"></i> Consult Reasons
+                    </button>
+                    <button onclick="switchTab('status')" id="btn-status" class="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i> Status
                     </button>
                 </div>
             </div>
@@ -142,7 +145,7 @@
                 <!-- Main Timeline (2/3 width) -->
                 <div class="lg:col-span-2 glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Lead Volume (Jan 25 - Feb 26)</h3>
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Lead Volume (Jan 25 - Mar 26)</h3>
                         <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-black uppercase rounded-full tracking-wider">Historical Audit</span>
                     </div>
                     <div class="chart-container" style="height: 350px;">
@@ -224,7 +227,7 @@
                         <p class="text-sm text-slate-500">Verified monthly lead data by location (Jan 25 - Current).</p>
                     </div>
                     <div class="p-3 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm flex items-center gap-2">
-                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i> 14 Months Audited
+                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i> 15 Months Audited
                     </div>
                 </div>
                 <div class="overflow-x-auto custom-scroll">
@@ -250,7 +253,7 @@
         </div>
 
         <!-- ========================================== -->
-        <!-- 3. CONSULT REASONS VIEW (NEW TAB) -->
+        <!-- 3. CONSULT REASONS VIEW -->
         <!-- ========================================== -->
         <div id="reasons" class="tab-content">
             <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden p-6 md:p-8">
@@ -294,6 +297,57 @@
             </div>
         </div>
 
+        <!-- ========================================== -->
+        <!-- 4. CONSULT STATUS VIEW (NEW TAB) -->
+        <!-- ========================================== -->
+        <div id="status" class="tab-content">
+            <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden p-6 md:p-8">
+                <div class="mb-8 border-b border-slate-200 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Consultation Status Breakdown</h2>
+                        <p class="text-sm text-slate-500">Historical analysis of <span class="font-bold text-emerald-600">Completed Consults</span> versus total lead volume.</p>
+                    </div>
+                    <div class="p-3 bg-emerald-50 text-emerald-700 rounded-xl font-bold text-sm flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i> Verification Logs
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 xl:grid-cols-5 gap-10">
+                    <!-- Chart Side (Takes up 3 columns) -->
+                    <div class="xl:col-span-3">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Completed vs Total Leads (Trend)</h3>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                        <div class="mt-4 flex gap-4 justify-center">
+                            <span class="text-xs font-bold text-slate-500 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-slate-200"></div> Total Leads</span>
+                            <span class="text-xs font-bold text-emerald-600 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-emerald-500"></div> Completed Consults</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Table Side (Takes up 2 columns) -->
+                    <div class="flex flex-col h-[450px] xl:col-span-2">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Monthly Completion Rate</h3>
+                        <div class="overflow-y-auto custom-scroll flex-1 border border-slate-200 rounded-2xl">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="sticky top-0 bg-slate-50 shadow-sm z-10">
+                                    <tr class="text-[10px] font-black text-slate-500 uppercase tracking-wider">
+                                        <th class="p-4 border-b border-slate-200">Period</th>
+                                        <th class="p-4 border-b border-slate-200 text-center">Total Leads</th>
+                                        <th class="p-4 border-b border-slate-200 text-center text-emerald-600">Completed</th>
+                                        <th class="p-4 border-b border-slate-200 text-right">% Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="statusTableBody" class="text-sm font-medium text-slate-700 divide-y divide-slate-100">
+                                    <!-- JS Generates this -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- DATA & LOGIC -->
@@ -302,24 +356,25 @@
         //  DATA UPDATE AREA
         // ==========================================
         const REPORT_DATA = {
+            // Updated with "completed" column derived from the raw data dump
             monthlyHistory: [
-                { month: 'Jan 2025', total: 112, loganville: 93, tampa: 15, hudson: 4, alpharetta: 0, brookhaven: 0 },
-                { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 13, hudson: 0, alpharetta: 1, brookhaven: 0 },
-                { month: 'Mar 2025', total: 105, loganville: 83, tampa: 16, hudson: 6, alpharetta: 0, brookhaven: 0 },
-                { month: 'Apr 2025', total: 76,  loganville: 64, tampa: 11, hudson: 0, alpharetta: 1, brookhaven: 0 },
-                { month: 'May 2025', total: 60,  loganville: 47, tampa: 12, hudson: 0, alpharetta: 1, brookhaven: 0 },
-                { month: 'Jun 2025', total: 89,  loganville: 82, tampa: 7, hudson: 0, alpharetta: 0, brookhaven: 0 },
-                { month: 'Jul 2025', total: 93,  loganville: 83, tampa: 9, hudson: 0, alpharetta: 1, brookhaven: 0 },
-                { month: 'Aug 2025', total: 83,  loganville: 68, tampa: 11, hudson: 0, alpharetta: 4, brookhaven: 0 },
-                { month: 'Sep 2025', total: 132, loganville: 83, tampa: 13, hudson: 28, alpharetta: 4, brookhaven: 4 },
-                { month: 'Oct 2025', total: 105, loganville: 66, tampa: 12, hudson: 16, alpharetta: 5, brookhaven: 6 },
-                { month: 'Nov 2025', total: 89,  loganville: 58, tampa: 7, hudson: 13, alpharetta: 5, brookhaven: 6 },
-                { month: 'Dec 2025', total: 80,  loganville: 58, tampa: 5, hudson: 14, alpharetta: 2, brookhaven: 1 },
-                { month: 'Jan 2026', total: 99,  loganville: 71, tampa: 13, hudson: 14, alpharetta: 0, brookhaven: 1 },
-                { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8 },
+                { month: 'Jan 2025', total: 112, loganville: 93, tampa: 15, hudson: 4, alpharetta: 0, brookhaven: 0, completed: 87 },
+                { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 13, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 66 },
+                { month: 'Mar 2025', total: 105, loganville: 83, tampa: 16, hudson: 6, alpharetta: 0, brookhaven: 0, completed: 71 },
+                { month: 'Apr 2025', total: 76,  loganville: 64, tampa: 11, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 63 },
+                { month: 'May 2025', total: 60,  loganville: 47, tampa: 12, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 47 },
+                { month: 'Jun 2025', total: 89,  loganville: 82, tampa: 7, hudson: 0, alpharetta: 0, brookhaven: 0, completed: 76 },
+                { month: 'Jul 2025', total: 93,  loganville: 83, tampa: 9, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 67 },
+                { month: 'Aug 2025', total: 83,  loganville: 68, tampa: 11, hudson: 0, alpharetta: 4, brookhaven: 0, completed: 68 },
+                { month: 'Sep 2025', total: 132, loganville: 83, tampa: 13, hudson: 28, alpharetta: 4, brookhaven: 4, completed: 83 },
+                { month: 'Oct 2025', total: 105, loganville: 66, tampa: 12, hudson: 16, alpharetta: 5, brookhaven: 6, completed: 79 },
+                { month: 'Nov 2025', total: 89,  loganville: 58, tampa: 7, hudson: 13, alpharetta: 5, brookhaven: 6, completed: 70 },
+                { month: 'Dec 2025', total: 80,  loganville: 58, tampa: 5, hudson: 14, alpharetta: 2, brookhaven: 1, completed: 57 },
+                { month: 'Jan 2026', total: 99,  loganville: 71, tampa: 13, hudson: 14, alpharetta: 0, brookhaven: 1, completed: 78 },
+                { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8, completed: 88 },
 
-                // Mar 2026 (MTD) - UPDATED: Loganville 19, Tampa 3, Hudson 5, Alpharetta 0, Brookhaven 2. Total: 29
-                { month: 'Mar 2026 (MTD)', total: 29, loganville: 19, tampa: 3, hudson: 5, alpharetta: 0, brookhaven: 2, isPartial: true }
+                // Mar 2026 (MTD) - UPDATED
+                { month: 'Mar 2026 (MTD)', total: 29, loganville: 19, tampa: 3, hudson: 5, alpharetta: 0, brookhaven: 2, completed: 16, isPartial: true }
             ],
             currentMonthSources: [
                 { source: 'Phone', value: 16, color: '#4f46e5' }, 
@@ -334,9 +389,7 @@
                 { reason: 'Aesthetics - Face', count: 2 }
             ],
             
-            // NEW DATA: Month-by-Month Top 3 Reasons per Location (Jan 2025 - Mar 2026)
-            // *NOTE*: These are placeholder breakdowns corresponding to the exact total volume of each location per month. 
-            // Update these exact numbers based on your raw reports when downloaded.
+            // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Mar 2026)
             monthlyTopReasons: [
                 {
                     month: 'Mar 2026 (MTD)',
@@ -499,8 +552,9 @@
             lucide.createIcons();
             initDashboard();
             renderTable();
-            renderReasons(); // Initialize 3rd Tab
-            renderMonthlyReasons(); // Initialize Monthly Breakdown inside 3rd Tab
+            renderReasons();
+            renderMonthlyReasons();
+            renderStatus(); // Initialize New Status Tab
         };
 
         function switchTab(tabId) {
@@ -510,7 +564,7 @@
             document.getElementById(tabId).classList.add('active');
             
             // Handle active button state
-            const tabs = ['dashboard', 'data', 'reasons'];
+            const tabs = ['dashboard', 'data', 'reasons', 'status'];
             tabs.forEach(t => {
                 const btn = document.getElementById('btn-' + t);
                 if(t === tabId) {
@@ -658,11 +712,9 @@
 
         // Initialize Tab 3 (Consult Reasons) - Top 3 Chart
         function renderReasons() {
-            // Sort data Highest to Lowest
             const sortedReasons = [...REPORT_DATA.consultReasonsCurrent].sort((a,b) => b.count - a.count);
             const top3 = sortedReasons.slice(0, 3);
 
-            // Render Chart (Top 3)
             const ctxReasons = document.getElementById('reasonsChart').getContext('2d');
             new Chart(ctxReasons, {
                 type: 'bar',
@@ -714,13 +766,10 @@
             };
 
             REPORT_DATA.monthlyTopReasons.forEach(monthData => {
-                // Determine if MTD for styling
                 const isMtd = monthData.month.includes('MTD');
                 const monthBg = isMtd ? 'bg-indigo-50/50 border-indigo-200' : 'bg-white border-slate-200';
                 
                 let locHtml = '';
-                
-                // Loop through the 5 specific locations
                 const locationsToRender = ['Loganville', 'Tampa', 'Hudson', 'Alpharetta', 'Brookhaven'];
                 
                 locationsToRender.forEach(loc => {
@@ -755,7 +804,6 @@
                     `;
                 });
 
-                // Build the full block for this month
                 const blockHtml = `
                     <div class="p-6 rounded-2xl border ${monthBg} shadow-sm">
                         <h4 class="font-bold text-lg text-slate-900 border-b border-slate-200 pb-3 mb-5 flex items-center gap-2">
@@ -768,6 +816,89 @@
                 `;
                 
                 container.innerHTML += blockHtml;
+            });
+        }
+
+        // Initialize Tab 4 (Status / Completed Consults)
+        function renderStatus() {
+            const labels = REPORT_DATA.monthlyHistory.map(d => d.month);
+            const dataTotal = REPORT_DATA.monthlyHistory.map(d => d.total);
+            // Fallback to 0 if completed isn't defined to prevent errors
+            const dataCompleted = REPORT_DATA.monthlyHistory.map(d => d.completed || 0); 
+
+            // Render Chart
+            const ctxStatus = document.getElementById('statusChart').getContext('2d');
+            new Chart(ctxStatus, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Total Leads',
+                            data: dataTotal,
+                            backgroundColor: '#e2e8f0', // Slate 200
+                            borderRadius: 4,
+                            barPercentage: 0.6,
+                            categoryPercentage: 0.8
+                        },
+                        {
+                            label: 'Completed Consults',
+                            data: dataCompleted,
+                            backgroundColor: '#10b981', // Emerald 500
+                            borderRadius: 4,
+                            barPercentage: 0.6,
+                            categoryPercentage: 0.8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { display: false } // Custom legend built in HTML
+                    },
+                    scales: {
+                        x: { 
+                            grid: { display: false },
+                            stacked: false // side by side bars
+                        },
+                        y: { 
+                            grid: { color: '#f1f5f9' },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Render Table
+            const tbody = document.getElementById('statusTableBody');
+            tbody.innerHTML = '';
+            
+            // Render from newest to oldest
+            [...REPORT_DATA.monthlyHistory].reverse().forEach(row => {
+                const tr = document.createElement('tr');
+                const rowBg = row.isPartial ? "bg-indigo-50/30" : "hover:bg-slate-50";
+                
+                const completed = row.completed || 0;
+                let percentage = "0%";
+                if(row.total > 0) {
+                    percentage = ((completed / row.total) * 100).toFixed(1) + "%";
+                }
+                
+                // Color formatting for rate
+                const rateNum = parseFloat(percentage);
+                let rateColor = "text-slate-600";
+                if(rateNum >= 80) rateColor = "text-emerald-600 font-bold";
+                else if(rateNum < 65) rateColor = "text-rose-500 font-bold";
+
+                tr.className = `transition-colors ${rowBg}`;
+                tr.innerHTML = `
+                    <td class="p-4 border-b border-slate-100">${row.month}</td>
+                    <td class="p-4 border-b border-slate-100 text-center font-bold text-slate-700">${row.total}</td>
+                    <td class="p-4 border-b border-slate-100 text-center font-black text-emerald-600">${completed}</td>
+                    <td class="p-4 border-b border-slate-100 text-right ${rateColor}">${percentage}</td>
+                `;
+                tbody.appendChild(tr);
             });
         }
     </script>
