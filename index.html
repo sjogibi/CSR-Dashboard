@@ -80,14 +80,14 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (15 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,388</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,397</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center gap-2">
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 92/mo</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 93/mo</span>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Mar 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">65</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">74</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="mt-4">
                         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
-                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 40%"></div>
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 50%"></div>
                         </div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">Accelerating Growth</p>
                     </div>
@@ -121,7 +121,7 @@
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~67%</span> of Mar volume.</p>
+                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~70%</span> of Mar volume.</p>
                 </div>
 
                 <!-- Card 4: Strategy Status -->
@@ -134,7 +134,7 @@
                         <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        March tracking continues. Loganville and Hudson showing early traction.
+                        March tracking continues. Loganville and Hudson showing strong early traction.
                     </p>
                 </div>
             </div>
@@ -161,7 +161,7 @@
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Website leads surging (34 units)</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Website leads surging (36 units)</span>
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@
                                 <div>
                                     <h5 class="text-sm font-bold text-slate-900">March Acceleration</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Mar MTD verified at <span class="font-bold text-slate-900">65 leads</span>. Early stage tracking shows Loganville (44) taking the initial lead.
+                                        Mar MTD verified at <span class="font-bold text-slate-900">74 leads</span>. Early stage tracking shows Loganville (52) taking the initial lead.
                                     </p>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                         <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">March 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 65
+                        Total Consults: 74
                     </span>
                 </div>
                 
@@ -356,7 +356,6 @@
         //  DATA UPDATE AREA
         // ==========================================
         const REPORT_DATA = {
-            // Updated with "completed" column derived from the raw data dump
             monthlyHistory: [
                 { month: 'Jan 2025', total: 112, loganville: 93, tampa: 15, hudson: 4, alpharetta: 0, brookhaven: 0, completed: 87 },
                 { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 13, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 66 },
@@ -374,21 +373,21 @@
                 { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8, completed: 105 },
 
                 // Mar 2026 (MTD) - UPDATED
-                { month: 'Mar 2026 (MTD)', total: 65, loganville: 44, tampa: 5, hudson: 14, alpharetta: 0, brookhaven: 2, completed: 46, isPartial: true }
+                { month: 'Mar 2026 (MTD)', total: 74, loganville: 52, tampa: 6, hudson: 14, alpharetta: 0, brookhaven: 2, completed: 46, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Website', value: 34, color: '#0ea5e9' }, 
-                { source: 'Phone', value: 20, color: '#4f46e5' },
-                { source: 'Returning', value: 9, color: '#f59e0b' },
+                { source: 'Website', value: 36, color: '#0ea5e9' }, 
+                { source: 'Phone', value: 23, color: '#4f46e5' },
+                { source: 'Returning', value: 13, color: '#f59e0b' },
                 { source: 'Referral', value: 1, color: '#10b981' },
                 { source: 'Other', value: 1, color: '#64748b' }
             ],
             consultReasonsCurrent: [
-                { reason: 'Surgical WL - LSG', count: 9 },
+                { reason: 'Surgical WL - LSG', count: 10 },
                 { reason: 'Aesthetics - Breast', count: 8 },
                 { reason: 'Aesthetics - Body', count: 7 },
-                { reason: 'Surgical WL - Options', count: 6 },
-                { reason: 'General Weight Loss - Other', count: 5 }
+                { reason: 'General Weight Loss', count: 7 },
+                { reason: 'Surgical WL - Options', count: 6 }
             ],
             
             // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Mar 2026)
@@ -396,21 +395,21 @@
                 {
                     month: 'Mar 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'Surgical WL - LSG', count: 9 }, { reason: 'Aesthetics - Breast', count: 8 }, { reason: 'Surgical WL - Options', count: 6 }],
-                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }],
-                        'Hudson': [{ reason: 'Aesthetics - Body', count: 7 }, { reason: 'Laser Therapy - Silac', count: 4 }],
+                        'Loganville': [{ reason: 'Surgical WL - LSG', count: 9 }, { reason: 'General Weight Loss', count: 7 }, { reason: 'Surgical WL - Options', count: 6 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 2 }, { reason: 'Tubal Ligation Reversal', count: 1 }, { reason: 'Laser Therapy - LHP', count: 1 }],
+                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 7 }, { reason: 'Aesthetics - Body', count: 5 }, { reason: 'Aesthetics - Face', count: 2 }],
                         'Alpharetta': [],
-                        'Brookhaven': [{ reason: 'Post-op New Consult', count: 2 }]
+                        'Brookhaven': [{ reason: 'Aesthetics - Body', count: 1 }, { reason: 'Surgical WL - LSG', count: 1 }]
                     }
                 },
                 {
                     month: 'Feb 2026',
                     locations: {
-                        'Loganville': [{ reason: 'General Weight Loss - Other', count: 15 }, { reason: 'Surgical WL - LSG', count: 9 }, { reason: 'Laser Therapy - Silac', count: 7 }],
+                        'Loganville': [{ reason: 'General Weight Loss', count: 15 }, { reason: 'Surgical WL - LSG', count: 9 }, { reason: 'Laser Therapy - Silac', count: 7 }],
                         'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
-                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 8 }, { reason: 'Medical WL - Tirzepatide', count: 6 }, { reason: 'Aesthetics - Body', count: 4 }],
-                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'General Surgery - Other', count: 2 }, { reason: 'Pain Management', count: 1 }],
-                        'Brookhaven': [{ reason: 'Medical WL - Tirzepatide', count: 4 }, { reason: 'Surgical WL - Gastric Bypass', count: 2 }, { reason: 'Hernia Ventral/Inguinal', count: 2 }]
+                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 8 }, { reason: 'Medical WL', count: 6 }, { reason: 'Aesthetics - Body', count: 4 }],
+                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'General Surgery', count: 2 }, { reason: 'Pain Management', count: 1 }],
+                        'Brookhaven': [{ reason: 'Medical WL', count: 4 }, { reason: 'Surgical WL - Gastric Bypass', count: 2 }, { reason: 'Hernia', count: 2 }]
                     }
                 },
                 {
@@ -418,9 +417,9 @@
                     locations: {
                         'Loganville': [{ reason: 'General Weight Loss', count: 25 }, { reason: 'Laser Therapy - Silac', count: 15 }, { reason: 'Surgical WL - LSG', count: 10 }],
                         'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Others - Options', count: 2 }],
-                        'Hudson': [{ reason: 'Medical WL - Options', count: 6 }, { reason: 'Aesthetics - Face', count: 5 }, { reason: 'Aesthetics - Body', count: 3 }],
-                        'Alpharetta': [], // 0 volume this month
-                        'Brookhaven': [{ reason: 'General Surgery - Other', count: 1 }]
+                        'Hudson': [{ reason: 'Medical WL', count: 6 }, { reason: 'Aesthetics - Face', count: 5 }, { reason: 'Aesthetics - Body', count: 3 }],
+                        'Alpharetta': [], 
+                        'Brookhaven': [{ reason: 'General Surgery', count: 1 }]
                     }
                 },
                 {
