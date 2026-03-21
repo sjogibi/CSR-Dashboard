@@ -356,6 +356,7 @@
         //  DATA UPDATE AREA
         // ==========================================
         const REPORT_DATA = {
+            // Updated with "completed" column derived from the raw data dump
             monthlyHistory: [
                 { month: 'Jan 2025', total: 112, loganville: 93, tampa: 15, hudson: 4, alpharetta: 0, brookhaven: 0, completed: 87 },
                 { month: 'Feb 2025', total: 80,  loganville: 66, tampa: 13, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 66 },
@@ -373,14 +374,14 @@
                 { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8, completed: 105 },
 
                 // Mar 2026 (MTD) - UPDATED
-                { month: 'Mar 2026 (MTD)', total: 74, loganville: 52, tampa: 6, hudson: 14, alpharetta: 0, brookhaven: 2, completed: 46, isPartial: true }
+                { month: 'Mar 2026 (MTD)', total: 74, loganville: 52, tampa: 6, hudson: 14, alpharetta: 0, brookhaven: 2, completed: 51, isPartial: true }
             ],
             currentMonthSources: [
                 { source: 'Website', value: 36, color: '#0ea5e9' }, 
                 { source: 'Phone', value: 23, color: '#4f46e5' },
                 { source: 'Returning', value: 13, color: '#f59e0b' },
-                { source: 'Referral', value: 1, color: '#10b981' },
-                { source: 'Other', value: 1, color: '#64748b' }
+                { source: 'Athena Provider', value: 1, color: '#10b981' },
+                { source: 'Facebook', value: 1, color: '#64748b' }
             ],
             consultReasonsCurrent: [
                 { reason: 'Surgical WL - LSG', count: 10 },
