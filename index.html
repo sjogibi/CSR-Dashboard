@@ -80,14 +80,14 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (16 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,429</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,435</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center gap-2">
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 89/mo</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 94/mo</span>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Apr 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">7</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">13</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -104,9 +104,9 @@
                     </div>
                     <div class="mt-4">
                         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
-                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 10%"></div>
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 15%"></div>
                         </div>
-                        <p class="text-[10px] text-slate-400 font-bold uppercase">New Cycle Initiated</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Steady Month Initiation</p>
                     </div>
                 </div>
 
@@ -192,7 +192,7 @@
                                 <div>
                                     <h5 class="text-sm font-bold text-slate-900">April Initiation</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Apr MTD verified at <span class="font-bold text-slate-900">7 leads</span>. Early stage tracking shows Loganville taking the initial lead.
+                                        Apr MTD verified at <span class="font-bold text-slate-900">13 leads</span>. Early stage tracking shows Loganville taking the primary lead with 11 units.
                                     </p>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
                                 <div>
                                     <h5 class="text-sm font-bold text-slate-900">March Closing</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        March closed strong at 99 units with 77 completed consults, highlighting exceptional growth in Hudson (20 leads).
+                                        March closed strong at 99 units with 77 completed consults, highlighting exceptional growth across multiple hubs.
                                     </p>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                         <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">April 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 7
+                        Total Consults: 13
                     </span>
                 </div>
                 
@@ -374,21 +374,21 @@
                 { month: 'Mar 2026', total: 99, loganville: 68, tampa: 8, hudson: 20, alpharetta: 1, brookhaven: 2, completed: 77 },
 
                 // Apr 2026 (MTD) - NEW
-                { month: 'Apr 2026 (MTD)', total: 7, loganville: 6, tampa: 0, hudson: 0, alpharetta: 1, brookhaven: 0, completed: 0, isPartial: true }
+                { month: 'Apr 2026 (MTD)', total: 13, loganville: 11, tampa: 0, hudson: 0, alpharetta: 1, brookhaven: 1, completed: 0, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 4, color: '#4f46e5' },
-                { source: 'Website', value: 1, color: '#0ea5e9' },
-                { source: 'Returning', value: 1, color: '#f59e0b' },
-                { source: 'Referral', value: 1, color: '#10b981' }
+                { source: 'Phone', value: 5, color: '#4f46e5' },
+                { source: 'Website', value: 2, color: '#0ea5e9' },
+                { source: 'Returning', value: 2, color: '#f59e0b' },
+                { source: 'Referral', value: 2, color: '#10b981' },
+                { source: 'Walk-in', value: 2, color: '#64748b' }
             ],
             consultReasonsCurrent: [
+                { reason: 'General Weight Loss', count: 2 },
                 { reason: 'Post-op New Consult', count: 2 },
-                { reason: 'Laser Therapy - LHP', count: 1 },
-                { reason: 'General Weight Loss', count: 1 },
-                { reason: 'Surgical WL - Options', count: 1 },
-                { reason: 'Tubal Ligation Reversal', count: 1 },
-                { reason: 'General Surgery - Other', count: 1 }
+                { reason: 'Tubal Ligation Reversal', count: 2 },
+                { reason: 'Surgical WL - Options', count: 2 },
+                { reason: 'Laser Therapy - LHP', count: 1 }
             ],
             
             // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Apr 2026)
@@ -396,11 +396,11 @@
                 {
                     month: 'Apr 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'Post-op New Consult', count: 2 }, { reason: 'Laser Therapy - LHP', count: 1 }, { reason: 'General Weight Loss', count: 1 }],
+                        'Loganville': [{ reason: 'General Weight Loss', count: 2 }, { reason: 'Post-op New Consult', count: 2 }, { reason: 'Tubal Ligation Reversal', count: 2 }],
                         'Tampa': [],
                         'Hudson': [],
                         'Alpharetta': [{ reason: 'General Surgery - Other', count: 1 }],
-                        'Brookhaven': []
+                        'Brookhaven': [{ reason: 'Surgical WL - Options', count: 1 }]
                     }
                 },
                 {
