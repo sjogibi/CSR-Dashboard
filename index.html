@@ -80,14 +80,14 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (16 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,435</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,461</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center gap-2">
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 94/mo</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 91/mo</span>
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Apr 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">13</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">39</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="mt-4">
                         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
-                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 15%"></div>
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 35%"></div>
                         </div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">Steady Month Initiation</p>
                     </div>
@@ -129,12 +129,12 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-indigo-300 uppercase tracking-widest">Strategic Status</p>
-                            <h3 class="text-2xl font-bold mt-2">April Start</h3>
+                            <h3 class="text-2xl font-bold mt-2">April Progress</h3>
                         </div>
                         <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        March closed at 99 leads. April tracking has successfully begun.
+                        April tracking shows strong early conversions (21 completed consults).
                     </p>
                 </div>
             </div>
@@ -161,7 +161,7 @@
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Early tracking</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (20 units)</span>
                     </div>
                 </div>
             </div>
@@ -190,9 +190,9 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">April Initiation</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">April Trajectory</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Apr MTD verified at <span class="font-bold text-slate-900">15 leads</span>. Early stage tracking shows Loganville taking the primary lead with 13 units.
+                                        Apr MTD verified at <span class="font-bold text-slate-900">39 leads</span>. Early stage tracking shows Loganville taking the primary lead with 33 units.
                                     </p>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                         <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">April 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 15
+                        Total Consults: 39
                     </span>
                 </div>
                 
@@ -374,22 +374,22 @@
                 { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 6, brookhaven: 8, completed: 105 },
                 { month: 'Mar 2026', total: 99, loganville: 68, tampa: 8, hudson: 20, alpharetta: 1, brookhaven: 2, completed: 81 },
 
-                // Apr 2026 (MTD) - NEW
-                { month: 'Apr 2026 (MTD)', total: 15, loganville: 13, tampa: 0, hudson: 0, alpharetta: 1, brookhaven: 1, completed: 5, isPartial: true }
+                // Apr 2026 (MTD) - UPDATED
+                { month: 'Apr 2026 (MTD)', total: 39, loganville: 33, tampa: 2, hudson: 2, alpharetta: 1, brookhaven: 1, completed: 21, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 7, color: '#4f46e5' },
-                { source: 'Website', value: 2, color: '#0ea5e9' },
-                { source: 'Returning', value: 2, color: '#f59e0b' },
-                { source: 'Walk-in', value: 2, color: '#64748b' },
-                { source: 'Referral', value: 2, color: '#10b981' }
+                { source: 'Phone', value: 20, color: '#4f46e5' },
+                { source: 'Website', value: 8, color: '#0ea5e9' },
+                { source: 'Returning', value: 5, color: '#f59e0b' },
+                { source: 'Walk-in', value: 3, color: '#64748b' },
+                { source: 'Referral/Other', value: 3, color: '#10b981' } 
             ],
             consultReasonsCurrent: [
-                { reason: 'General Weight Loss', count: 3 },
-                { reason: 'Surgical WL - LSG', count: 2 },
-                { reason: 'Post-op New Consult', count: 2 },
-                { reason: 'Tubal Ligation Reversal', count: 2 },
-                { reason: 'Surgical WL - Options', count: 2 }
+                { reason: 'General Weight Loss', count: 10 },
+                { reason: 'Tubal Ligation Reversal', count: 5 },
+                { reason: 'Post-op New Consult', count: 4 },
+                { reason: 'Medical WL - Options', count: 3 },
+                { reason: 'Laser Therapy - Silac', count: 3 }
             ],
             
             // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Apr 2026)
@@ -397,9 +397,9 @@
                 {
                     month: 'Apr 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 3 }, { reason: 'Surgical WL - LSG', count: 2 }, { reason: 'Post-op New Consult', count: 2 }],
-                        'Tampa': [],
-                        'Hudson': [],
+                        'Loganville': [{ reason: 'General Weight Loss', count: 10 }, { reason: 'Tubal Ligation Reversal', count: 5 }, { reason: 'Post-op New Consult', count: 4 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Filac', count: 1 }, { reason: 'Hernia', count: 1 }],
+                        'Hudson': [{ reason: 'Aesthetics - Body', count: 1 }, { reason: 'Aesthetics - Breast', count: 1 }],
                         'Alpharetta': [{ reason: 'General Surgery - Other', count: 1 }],
                         'Brookhaven': [{ reason: 'Surgical WL - Options', count: 1 }]
                     }
