@@ -83,14 +83,14 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (16 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,543</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,544</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center gap-2">
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 96/mo</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 97/mo</span>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Apr 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">121</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">122</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -164,7 +164,7 @@
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (50 units)</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (51 units)</span>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                                 <div>
                                     <h5 class="text-sm font-bold text-slate-900">April Trajectory</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Apr MTD verified at <span class="font-bold text-slate-900">121 leads</span>. Advanced tracking shows Loganville taking the primary lead with 79 units.
+                                        Apr MTD verified at <span class="font-bold text-slate-900">122 leads</span>. Advanced tracking shows Loganville taking the primary lead with 79 units.
                                     </p>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                         <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">April 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 121
+                        Total Consults: 122
                     </span>
                 </div>
                 
@@ -436,10 +436,10 @@
                 { month: 'Mar 2026', total: 99,  loganville: 68, tampa: 8,  hudson: 20, alpharetta: 1, brookhaven: 2, completed: 81 },
 
                 // Apr 2026 (MTD) - UPDATED
-                { month: 'Apr 2026 (MTD)', total: 121, loganville: 79, tampa: 18, hudson: 12, alpharetta: 9, brookhaven: 3, completed: 96, isPartial: true }
+                { month: 'Apr 2026 (MTD)', total: 122, loganville: 79, tampa: 18, hudson: 13, alpharetta: 9, brookhaven: 3, completed: 96, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 50, color: '#4f46e5' },
+                { source: 'Phone', value: 51, color: '#4f46e5' },
                 { source: 'Website', value: 34, color: '#0ea5e9' },
                 { source: 'Returning', value: 16, color: '#f59e0b' },
                 { source: 'Walk-in', value: 3, color: '#64748b' },
@@ -448,9 +448,9 @@
             consultReasonsCurrent: [
                 { reason: 'General Weight Loss', count: 17 },
                 { reason: 'Post-op New Consult', count: 14 },
-                { reason: 'Medical WL - Options', count: 11 },
-                { reason: 'Aesthetics - Breast', count: 10 },
-                { reason: 'Laser Therapy - Silac', count: 10 }
+                { reason: 'Aesthetics - Breast', count: 11 },
+                { reason: 'Laser Therapy - Silac', count: 10 },
+                { reason: 'Tubal Ligation Reversal', count: 9 }
             ],
             
             // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Apr 2026)
@@ -458,9 +458,9 @@
                 {
                     month: 'Apr 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 16 }, { reason: 'Post-op New Consult', count: 10 }, { reason: 'Medical WL - Options', count: 8 }],
+                        'Loganville': [{ reason: 'General Weight Loss', count: 16 }, { reason: 'Post-op New Consult', count: 10 }, { reason: 'Tubal Ligation Reversal', count: 8 }],
                         'Tampa': [{ reason: 'Laser Therapy - Silac', count: 3 }, { reason: 'Medical WL - Options', count: 3 }, { reason: 'Laser Therapy - LHP', count: 2 }],
-                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 8 }, { reason: 'Aesthetics - Body', count: 2 }, { reason: 'Aesthetics - Face', count: 2 }],
+                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 9 }, { reason: 'Aesthetics - Face', count: 2 }, { reason: 'Aesthetics - Body', count: 2 }],
                         'Alpharetta': [{ reason: 'Post-op New Consult', count: 4 }, { reason: 'General Surgery - Other', count: 2 }, { reason: 'Laser Therapy - Silac', count: 2 }],
                         'Brookhaven': [{ reason: 'Surgical WL - Options', count: 1 }, { reason: 'Tubal Ligation Reversal', count: 1 }, { reason: 'Aesthetics - Face', count: 1 }]
                     }
@@ -503,8 +503,8 @@
                 'Feb 2026': [4, 3, 4, 3, 3, 4, 3, 4, 3, 3, 4, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 4], 
                 // Mar Total: 99
                 'Mar 2026': [3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], 
-                // Apr Total: 121 (Current - Day 29 sum is 121)
-                'Apr 2026': [5, 5, 6, 5, 4, 5, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 7, 4, 0, 1, 0, 6, 6] 
+                // Apr Total: 122 (Current - Day 29 sum is 122)
+                'Apr 2026': [5, 5, 6, 5, 4, 5, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 7, 4, 0, 1, 0, 6, 7] 
             }
         };
 
