@@ -83,7 +83,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (17 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,588</h3>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,608</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
@@ -99,7 +99,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">May 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">41</h3>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">61</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -124,7 +124,7 @@
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~68%</span> of May volume.</p>
+                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~67%</span> of May volume.</p>
                 </div>
 
                 <!-- Card 4: Strategy Status -->
@@ -137,7 +137,7 @@
                         <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        May has begun tracking with 20 completed consults already verified.
+                        May has begun tracking with 40 completed consults already verified.
                     </p>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (19 units)</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (32 units)</span>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                                 <div>
                                     <h5 class="text-sm font-bold text-slate-900">May Trajectory</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        May MTD verified at <span class="font-bold text-slate-900">41 leads</span>. Early stage tracking shows Loganville taking the primary lead with 28 units.
+                                        May MTD verified at <span class="font-bold text-slate-900">61 leads</span>. Early stage tracking shows Loganville taking the primary lead with 41 units.
                                     </p>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                         <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">May 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 41
+                        Total Consults: 61
                     </span>
                 </div>
                 
@@ -434,24 +434,24 @@
                 { month: 'Jan 2026', total: 99,  loganville: 71, tampa: 13, hudson: 14, alpharetta: 0, brookhaven: 1, completed: 92 },
                 { month: 'Feb 2026', total: 120, loganville: 74, tampa: 14, hudson: 18, alpharetta: 5, brookhaven: 9, completed: 105 },
                 { month: 'Mar 2026', total: 99,  loganville: 68, tampa: 8,  hudson: 20, alpharetta: 1, brookhaven: 2, completed: 81 },
-                { month: 'Apr 2026', total: 125, loganville: 79, tampa: 21, hudson: 13, alpharetta: 9, brookhaven: 3, completed: 109 },
+                { month: 'Apr 2026', total: 125, loganville: 79, tampa: 21, hudson: 13, alpharetta: 9, brookhaven: 3, completed: 108 },
 
-                // May 2026 (MTD) - NEW
-                { month: 'May 2026 (MTD)', total: 41, loganville: 28, tampa: 6, hudson: 4, alpharetta: 0, brookhaven: 3, completed: 20, isPartial: true }
+                // May 2026 (MTD) - UPDATED
+                { month: 'May 2026 (MTD)', total: 61, loganville: 41, tampa: 9, hudson: 6, alpharetta: 1, brookhaven: 4, completed: 40, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 19, color: '#4f46e5' },
-                { source: 'Website', value: 8, color: '#0ea5e9' },
-                { source: 'Returning', value: 11, color: '#f59e0b' },
-                { source: 'Walk-in', value: 1, color: '#64748b' },
-                { source: 'Referral/Other', value: 2, color: '#10b981' } 
+                { source: 'Phone', value: 32, color: '#4f46e5' },
+                { source: 'Website', value: 12, color: '#0ea5e9' },
+                { source: 'Returning', value: 12, color: '#f59e0b' },
+                { source: 'Walk-in', value: 2, color: '#64748b' },
+                { source: 'Referral/Other', value: 3, color: '#10b981' } 
             ],
             consultReasonsCurrent: [
-                { reason: 'Medical WL - Options', count: 10 },
-                { reason: 'Surgical WL - LSG', count: 5 },
-                { reason: 'Laser Therapy - Filac', count: 4 },
-                { reason: 'Tubal Ligation Reversal', count: 4 },
-                { reason: 'Aesthetics - Breast', count: 4 }
+                { reason: 'Medical WL - Options', count: 12 },
+                { reason: 'Surgical WL - LSG', count: 6 },
+                { reason: 'Aesthetics - Breast', count: 6 },
+                { reason: 'General Weight Loss', count: 5 },
+                { reason: 'Laser Therapy - Silac', count: 4 }
             ],
             
             // Month-by-Month Top 3 Reasons per Location (Jan 2025 - May 2026)
@@ -459,11 +459,11 @@
                 {
                     month: 'May 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'Medical WL - Options', count: 7 }, { reason: 'Laser Therapy - Filac', count: 4 }, { reason: 'Surgical WL - LSG', count: 4 }],
-                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 3 }, { reason: 'Medical WL - Options', count: 2 }, { reason: 'Tubal Ligation Reversal', count: 1 }],
-                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 3 }, { reason: 'Aesthetics - Body', count: 1 }],
-                        'Alpharetta': [],
-                        'Brookhaven': [{ reason: 'Medical WL - Tirzepatide', count: 2 }, { reason: 'Medical WL - Options', count: 1 }, { reason: 'Surgical WL - LSG', count: 1 }]
+                        'Loganville': [{ reason: 'Medical WL - Options', count: 9 }, { reason: 'Surgical WL - LSG', count: 5 }, { reason: 'Laser Therapy - Filac', count: 4 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 4 }, { reason: 'Medical WL - Options', count: 2 }, { reason: 'Tubal Ligation Reversal', count: 1 }],
+                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 5 }, { reason: 'Aesthetics - Body', count: 1 }],
+                        'Alpharetta': [{ reason: 'Others - Options', count: 1 }],
+                        'Brookhaven': [{ reason: 'Medical WL - Options', count: 1 }, { reason: 'Surgical WL - LSG', count: 1 }, { reason: 'Tubal Ligation Reversal', count: 1 }]
                     }
                 },
                 {
@@ -514,8 +514,8 @@
                 'Mar 2026': [3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4], 
                 // Apr Total: 125
                 'Apr 2026': [5, 5, 6, 5, 4, 5, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 7, 4, 0, 1, 0, 7, 7, 3],
-                // May Total: 41 (Current - Day 12 sum is 41)
-                'May 2026': [4, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 0] 
+                // May Total: 61 (Current - Day 18 sum is 61)
+                'May 2026': [4, 4, 4, 4, 3, 3, 3, 4, 4, 4, 4, 2, 3, 3, 3, 3, 3, 3] 
             }
         };
 
