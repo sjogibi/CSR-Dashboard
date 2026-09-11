@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IBI Clinic - Performance Intelligence 2025-26</title>
     
-    <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Explicitly loading Chart.js to fix the ReferenceError -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Style Configuration -->
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
         .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
@@ -42,7 +41,7 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold tracking-tight">IBI CLINIC INTELLIGENCE</h1>
-                        <p class="text-[10px] text-indigo-300 uppercase tracking-widest font-semibold">Audit Cycle: Jan '25 - Jun '26</p>
+                        <p class="text-[10px] text-indigo-300 uppercase tracking-widest font-semibold">Audit Cycle: Jan '25 - Sep '26</p>
                     </div>
                 </div>
                 
@@ -82,15 +81,15 @@
                 <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.1s">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (18 Months)</p>
-                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,694</h3>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Volume (21 Months)</p>
+                            <h3 class="text-4xl font-extrabold text-slate-900 mt-2" id="kpi-total">1,894</h3>
                         </div>
                         <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
                     </div>
                     <div class="mt-4 flex items-center gap-2">
-                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 94/mo</span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">+ Avg 90/mo</span>
                     </div>
                 </div>
 
@@ -98,8 +97,8 @@
                 <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.2s">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Jun 2026 (MTD)</p>
-                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">47</h3>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Sep 2026 (MTD)</p>
+                            <h3 class="text-4xl font-extrabold text-indigo-600 mt-2" id="kpi-mtd">11</h3>
                         </div>
                         <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                             <i data-lucide="calendar-clock" class="w-6 h-6"></i>
@@ -107,7 +106,7 @@
                     </div>
                     <div class="mt-4">
                         <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
-                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 45%"></div>
+                            <div class="bg-indigo-600 h-1.5 rounded-full" style="width: 10%"></div>
                         </div>
                         <p class="text-[10px] text-slate-400 font-bold uppercase">Steady Month Initiation</p>
                     </div>
@@ -117,14 +116,14 @@
                 <div class="glass-panel p-6 rounded-3xl border border-white shadow-sm hover:shadow-xl transition-all animate-enter" style="animation-delay: 0.3s">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Top Hub (Jun)</p>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Top Hub (Sep)</p>
                             <h3 class="text-3xl font-extrabold text-slate-900 mt-2">Loganville</h3>
                         </div>
                         <div class="p-3 bg-emerald-50 text-emerald-600 rounded-xl">
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~68%</span> of Jun volume.</p>
+                    <p class="text-xs text-slate-500 mt-4 font-medium">Represents <span class="text-slate-900 font-bold">~72%</span> of Sep volume.</p>
                 </div>
 
                 <!-- Card 4: Strategy Status -->
@@ -132,12 +131,12 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <p class="text-xs font-bold text-indigo-300 uppercase tracking-widest">Strategic Status</p>
-                            <h3 class="text-2xl font-bold mt-2">June Initiation</h3>
+                            <h3 class="text-2xl font-bold mt-2">September Initiation</h3>
                         </div>
                         <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
                     </div>
                     <p class="text-xs text-indigo-200 mt-4 leading-relaxed opacity-80">
-                        June tracking has begun with 30 completed consults verified.
+                        September tracking has begun with 6 completed consults verified.
                     </p>
                 </div>
             </div>
@@ -148,7 +147,7 @@
                 <!-- Main Timeline (2/3 width) -->
                 <div class="lg:col-span-2 glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Lead Volume (Jan 25 - May 26)</h3>
+                        <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Lead Volume (Jan 25 - Sep 26)</h3>
                         <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-black uppercase rounded-full tracking-wider">Historical Audit</span>
                     </div>
                     <div class="chart-container" style="height: 350px;">
@@ -158,13 +157,13 @@
 
                 <!-- Source Breakdown (1/3 width) -->
                 <div class="glass-panel p-8 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col justify-center">
-                    <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight mb-2 text-center">Source Mix (Jun MTD)</h3>
+                    <h3 class="text-lg font-bold text-slate-900 uppercase tracking-tight mb-2 text-center">Source Mix (Sep MTD)</h3>
                     <p class="text-xs text-slate-400 font-bold uppercase text-center mb-6 tracking-widest">Channel Distribution</p>
                     <div class="chart-container" style="height: 250px;">
                         <canvas id="sourceChart"></canvas>
                     </div>
                     <div class="mt-6 text-center">
-                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Website leads leading (18 units)</span>
+                        <span class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Phone leads dominating (5 units)</span>
                     </div>
                 </div>
             </div>
@@ -193,9 +192,9 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">June Trajectory</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">September Trajectory</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        Jun MTD verified at <span class="font-bold text-slate-900">47 leads</span>. Early stage tracking shows Loganville taking the primary lead with 32 units.
+                                        Sep MTD verified at <span class="font-bold text-slate-900">11 leads</span>. Early stage tracking shows Loganville taking the primary lead with 8 units.
                                     </p>
                                 </div>
                             </div>
@@ -203,9 +202,9 @@
                             <div class="flex gap-4 items-start p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                 <i data-lucide="trending-up" class="w-5 h-5 text-indigo-500 mt-1"></i>
                                 <div>
-                                    <h5 class="text-sm font-bold text-slate-900">May Closing</h5>
+                                    <h5 class="text-sm font-bold text-slate-900">August Closing</h5>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                        May closed solid at 100 units with 79 completed consults, highlighting consistent operational success.
+                                        August closed at 74 units with 56 completed consults, highlighting consistent operational success.
                                     </p>
                                 </div>
                             </div>
@@ -230,7 +229,7 @@
                         <p class="text-sm text-slate-500">Verified monthly lead data by location (Jan 25 - Current).</p>
                     </div>
                     <div class="p-3 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm flex items-center gap-2">
-                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i> 18 Months Audited
+                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i> 21 Months Audited
                     </div>
                 </div>
                 <div class="overflow-x-auto custom-scroll">
@@ -263,17 +262,17 @@
                 <div class="mb-8 border-b border-slate-200 pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
                         <h2 class="text-2xl font-bold text-slate-900">Reason for Consult Breakdown</h2>
-                        <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">Jun 2026 (MTD)</span>.</p>
+                        <p class="text-sm text-slate-500">Comprehensive analysis of consultation drivers for <span class="font-bold text-slate-700">Sep 2026 (MTD)</span>.</p>
                     </div>
                     <span class="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-100">
-                        Total Consults: 47
+                        Total Consults: 11
                     </span>
                 </div>
                 
                 <div class="max-w-4xl mx-auto mb-10">
                     <!-- Chart Side -->
                     <div>
-                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Top 3 Primary Drivers (Jun MTD)</h3>
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Top 3 Primary Drivers (Sep MTD)</h3>
                         <div class="chart-container" style="height: 250px;">
                             <canvas id="reasonsChart"></canvas>
                         </div>
@@ -370,7 +369,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                     <!-- Month -2 -->
                     <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50 relative overflow-hidden">
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Apr 2026 (MTD)</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Jul 2026 (MTD)</p>
                         <h3 class="text-3xl font-black text-slate-800" id="kpi-mtd-m1">0</h3>
                         <div class="absolute -right-4 -bottom-4 opacity-10">
                             <i data-lucide="calendar" class="w-24 h-24"></i>
@@ -381,7 +380,7 @@
                     <div class="p-6 rounded-2xl border border-slate-200 bg-slate-50 relative overflow-hidden">
                         <div class="flex justify-between items-start">
                             <div>
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">May 2026 (MTD)</p>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Aug 2026 (MTD)</p>
                                 <h3 class="text-3xl font-black text-slate-800" id="kpi-mtd-m2">0</h3>
                             </div>
                             <span id="var-mtd-m2" class="px-2 py-1 rounded text-xs font-bold"></span>
@@ -392,7 +391,7 @@
                     <div class="p-6 rounded-2xl border border-indigo-200 bg-indigo-50 relative overflow-hidden shadow-sm">
                         <div class="flex justify-between items-start">
                             <div>
-                                <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Jun 2026 (MTD)</p>
+                                <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Sep 2026 (MTD)</p>
                                 <h3 class="text-3xl font-black text-indigo-700" id="kpi-mtd-m3">0</h3>
                             </div>
                             <span id="var-mtd-m3" class="px-2 py-1 rounded text-xs font-bold"></span>
@@ -436,34 +435,67 @@
                 { month: 'Mar 2026', total: 99,  loganville: 68, tampa: 8,  hudson: 20, alpharetta: 1, brookhaven: 2, completed: 81 },
                 { month: 'Apr 2026', total: 125, loganville: 79, tampa: 21, hudson: 13, alpharetta: 9, brookhaven: 3, completed: 108 },
                 { month: 'May 2026', total: 100, loganville: 63, tampa: 18, hudson: 13, alpharetta: 2, brookhaven: 4, completed: 79, isPartial: false },
+                { month: 'Jun 2026', total: 91, loganville: 62, tampa: 22, hudson: 5, alpharetta: 0, brookhaven: 2, completed: 57, isPartial: false },
+                { month: 'Jul 2026', total: 71, loganville: 59, tampa: 11, hudson: 0, alpharetta: 0, brookhaven: 1, completed: 56, isPartial: false },
+                { month: 'Aug 2026', total: 74, loganville: 56, tampa: 12, hudson: 0, alpharetta: 4, brookhaven: 2, completed: 56, isPartial: false },
 
-                // Jun 2026 (MTD) - UPDATED
-                { month: 'Jun 2026 (MTD)', total: 47, loganville: 32, tampa: 11, hudson: 4, alpharetta: 0, brookhaven: 0, completed: 30, isPartial: true }
+                // Sep 2026 (MTD) - UPDATED
+                { month: 'Sep 2026 (MTD)', total: 11, loganville: 8, tampa: 3, hudson: 0, alpharetta: 0, brookhaven: 0, completed: 6, isPartial: true }
             ],
             currentMonthSources: [
-                { source: 'Phone', value: 17, color: '#4f46e5' },
-                { source: 'Website', value: 18, color: '#0ea5e9' },
-                { source: 'Returning', value: 4, color: '#f59e0b' },
-                { source: 'Referral/Other', value: 8, color: '#10b981' } 
+                { source: 'Phone', value: 5, color: '#4f46e5' },
+                { source: 'Website', value: 3, color: '#0ea5e9' },
+                { source: 'Returning', value: 2, color: '#f59e0b' },
+                { source: 'Referral/Other', value: 1, color: '#10b981' } 
             ],
             consultReasonsCurrent: [
-                { reason: 'General Weight Loss', count: 9 },
-                { reason: 'Medical WL - Options', count: 8 },
-                { reason: 'Laser Therapy - Silac', count: 7 },
-                { reason: 'Medical WL - Tirzepatide', count: 6 },
-                { reason: 'Laser Therapy - Filac', count: 4 }
+                { reason: 'Hernia Ventral/Inguinal/Umbilical', count: 2 },
+                { reason: 'Laser Therapy - Filac', count: 2 },
+                { reason: 'Medical WL - Options', count: 1 },
+                { reason: 'Gynecology - Hysteroscopy', count: 1 },
+                { reason: 'Laser Therapy - Silac', count: 1 }
             ],
             
-            // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Jun 2026)
+            // Month-by-Month Top 3 Reasons per Location (Jan 2025 - Sep 2026)
             monthlyTopReasons: [
                 {
-                    month: 'Jun 2026 (MTD)',
+                    month: 'Sep 2026 (MTD)',
                     locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 6 }, { reason: 'Medical WL - Tirzepatide', count: 6 }, { reason: 'Medical WL - Options', count: 5 }],
-                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 4 }, { reason: 'Medical WL - Options', count: 3 }, { reason: 'General Weight Loss', count: 3 }],
-                        'Hudson': [{ reason: 'Aesthetics - Body', count: 2 }, { reason: 'Aesthetics - Breast', count: 2 }],
+                        'Loganville': [{ reason: 'Hernia Ventral/Inguinal/Umbilical', count: 2 }, { reason: 'Medical WL - Options', count: 1 }, { reason: 'Gynecology - Hysteroscopy', count: 1 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Filac', count: 1 }, { reason: 'Aesthetics - Body', count: 1 }, { reason: 'Medical WL - Tirzepatide', count: 1 }],
+                        'Hudson': [],
                         'Alpharetta': [],
                         'Brookhaven': []
+                    }
+                },
+                {
+                    month: 'Aug 2026',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 14 }, { reason: 'Hernia Ventral/Inguinal/Umbilical', count: 5 }, { reason: 'Medical WL - Options', count: 4 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 4 }, { reason: 'General Weight Loss', count: 2 }, { reason: 'Laser Therapy - Filac', count: 1 }],
+                        'Hudson': [],
+                        'Alpharetta': [{ reason: 'Tubal Ligation Reversal', count: 2 }, { reason: 'Aesthetics - Body', count: 1 }],
+                        'Brookhaven': [{ reason: 'Tubal Ligation Reversal', count: 1 }, { reason: 'Others - Options', count: 1 }]
+                    }
+                },
+                {
+                    month: 'Jul 2026',
+                    locations: {
+                        'Loganville': [{ reason: 'General Weight Loss', count: 10 }, { reason: 'Laser Therapy - Silac', count: 10 }, { reason: 'Medical WL - Options', count: 5 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Filac', count: 3 }, { reason: 'General Surgery - Other Cyst', count: 2 }, { reason: 'Laser Therapy - LHP', count: 1 }],
+                        'Hudson': [],
+                        'Alpharetta': [],
+                        'Brookhaven': [{ reason: 'General Weight Loss', count: 1 }]
+                    }
+                },
+                {
+                    month: 'Jun 2026',
+                    locations: {
+                        'Loganville': [{ reason: 'Medical WL - Options', count: 9 }, { reason: 'General Weight Loss', count: 8 }, { reason: 'Medical WL - Tirzepatide', count: 6 }],
+                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 6 }, { reason: 'Medical WL - Options', count: 3 }, { reason: 'General Weight Loss', count: 3 }],
+                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 2 }, { reason: 'Aesthetics - Body', count: 2 }, { reason: 'Aesthetics - Face', count: 1 }],
+                        'Alpharetta': [],
+                        'Brookhaven': [{ reason: 'Laser Therapy - Filac', count: 1 }, { reason: 'Laser Therapy - LHP', count: 1 }]
                     }
                 },
                 {
@@ -475,57 +507,17 @@
                         'Alpharetta': [{ reason: 'General Weight Loss', count: 1 }, { reason: 'Others - Options', count: 1 }],
                         'Brookhaven': [{ reason: 'Surgical WL - LSG', count: 1 }, { reason: 'Tubal Ligation Reversal', count: 1 }, { reason: 'Medical WL - Options', count: 1 }]
                     }
-                },
-                {
-                    month: 'Apr 2026',
-                    locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 16 }, { reason: 'Post-op New Consult', count: 10 }, { reason: 'Tubal Ligation Reversal', count: 8 }],
-                        'Tampa': [{ reason: 'Laser Therapy - Silac', count: 4 }, { reason: 'Medical WL - Options', count: 3 }, { reason: 'Laser Therapy - LHP', count: 2 }],
-                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 9 }, { reason: 'Aesthetics - Face', count: 2 }, { reason: 'Aesthetics - Body', count: 2 }],
-                        'Alpharetta': [{ reason: 'Post-op New Consult', count: 4 }, { reason: 'General Surgery - Other', count: 2 }, { reason: 'Laser Therapy - Silac', count: 2 }],
-                        'Brookhaven': [{ reason: 'Surgical WL - Options', count: 1 }, { reason: 'Tubal Ligation Reversal', count: 1 }, { reason: 'Aesthetics - Face', count: 1 }]
-                    }
-                },
-                {
-                    month: 'Mar 2026',
-                    locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 11 }, { reason: 'Surgical WL - LSG', count: 10 }, { reason: 'Hernia', count: 7 }],
-                        'Tampa': [{ reason: 'Aesthetics - Face', count: 2 }, { reason: 'Hernia', count: 2 }, { reason: 'Laser Therapy - Silac', count: 1 }],
-                        'Hudson': [{ reason: 'Aesthetics - Breast', count: 11 }, { reason: 'Aesthetics - Body', count: 5 }, { reason: 'Aesthetics - Face', count: 3 }],
-                        'Alpharetta': [{ reason: 'Laser Therapy - Filac', count: 1 }],
-                        'Brookhaven': [{ reason: 'Aesthetics - Body', count: 1 }, { reason: 'Surgical WL - LSG', count: 1 }]
-                    }
-                },
-                {
-                    month: 'Feb 2026',
-                    locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 15 }, { reason: 'Surgical WL - LSG', count: 9 }, { reason: 'Laser Therapy - Silac', count: 7 }],
-                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 6 }, { reason: 'Laser Therapy - LHP', count: 4 }, { reason: 'Post-op New Consult', count: 2 }],
-                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 8 }, { reason: 'Medical WL', count: 6 }, { reason: 'Aesthetics - Body', count: 4 }],
-                        'Alpharetta': [{ reason: 'Aesthetics - Face', count: 3 }, { reason: 'General Surgery', count: 2 }, { reason: 'Pain Management', count: 1 }],
-                        'Brookhaven': [{ reason: 'Medical WL', count: 4 }, { reason: 'Surgical WL - Gastric Bypass', count: 2 }, { reason: 'Hernia', count: 2 }]
-                    }
-                },
-                {
-                    month: 'Jan 2025',
-                    locations: {
-                        'Loganville': [{ reason: 'General Weight Loss', count: 32 }, { reason: 'Surgical WL - LSG', count: 25 }, { reason: 'Laser Therapy - Silac', count: 18 }],
-                        'Tampa': [{ reason: 'Tubal Ligation Reversal', count: 8 }, { reason: 'Laser Therapy - LHP', count: 5 }, { reason: 'General Surgery', count: 2 }],
-                        'Hudson': [{ reason: 'Laser Therapy - Silac', count: 2 }, { reason: 'Medical WL', count: 2 }],
-                        'Alpharetta': [],
-                        'Brookhaven': []
-                    }
                 }
             ],
             // Daily incremental pacing data to construct MTD dynamically. 
             // Note: Since raw data only gives monthly totals, this uses an automated pacing curve to match your precise monthly total by the current day.
             dailyPacing: {
-                // Apr Total: 125
-                'Apr 2026': [5, 5, 6, 5, 4, 5, 4, 5, 5, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 7, 4, 0, 1, 0, 7, 7, 3],
-                // May Total: 100 (Closed - Full 31 days)
-                'May 2026': [4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 4, 4, 3, 3, 3, 4, 3, 2, 2, 3, 2, 2, 3, 2, 4, 3, 4, 3, 3],
-                // Jun Total: 47 (Current - Day 15 sum is 47)
-                'Jun 2026': [3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4]
+                // Jul Total: 71
+                'Jul 2026': [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5],
+                // Aug Total: 74
+                'Aug 2026': [2, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 2, 3, 2, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7],
+                // Sep Total: 11 (Current - Day 10 sum is 11)
+                'Sep 2026': [1, 1, 1, 1, 1, 1, 1, 2, 1, 1]
             }
         };
 
@@ -534,7 +526,14 @@
         // ==========================================
 
         window.onload = function() {
-            lucide.createIcons();
+            // Safe initialization checking for libraries
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            if (typeof Chart === 'undefined') {
+                console.error("Chart.js failed to load. Please check your network or CDN connection.");
+                return;
+            }
             initDashboard();
             renderTable();
             renderReasons();
@@ -671,7 +670,7 @@
                         variation = `▲ ${percent}%`;
                         varClass = "text-emerald-600 font-bold";
                     } else if (diff < 0) {
-                        variation = `▼ ${percent}%`;
+                        variation = `▼ ${Math.abs(percent)}%`;
                         varClass = "text-rose-500 font-bold";
                     } else {
                         variation = "0%";
@@ -738,7 +737,6 @@
             });
         }
 
-        // Initialize Tab 3 (Monthly Top 3 by Location)
         function renderMonthlyReasons() {
             const container = document.getElementById('monthlyReasonsContainer');
             container.innerHTML = '';
@@ -888,7 +886,6 @@
             });
         }
 
-        // Initialize Tab 5 (MTD Pacing)
         function renderMTD() {
             // 1. Get the exact current day of the month (e.g. today is 10)
             const today = new Date();
@@ -909,13 +906,13 @@
                 return arr.map(val => { sum += val; return sum; });
             };
 
-            const aprData = REPORT_DATA.dailyPacing['Apr 2026'] || [];
-            const mayData = REPORT_DATA.dailyPacing['May 2026'] || [];
-            const junData = REPORT_DATA.dailyPacing['Jun 2026'] || [];
+            const julData = REPORT_DATA.dailyPacing['Jul 2026'] || [];
+            const augData = REPORT_DATA.dailyPacing['Aug 2026'] || [];
+            const sepData = REPORT_DATA.dailyPacing['Sep 2026'] || [];
 
-            const aprCum = getCumulative(aprData);
-            const mayCum = getCumulative(mayData);
-            const junCum = getCumulative(junData);
+            const julCum = getCumulative(julData);
+            const augCum = getCumulative(augData);
+            const sepCum = getCumulative(sepData);
 
             // 3. Get exact MTD value based on the current day index
             // (If the current day is 10, index is 9). If the month has fewer days logged, it grabs the last available.
@@ -925,14 +922,14 @@
                 return cumArr[idx];
             };
 
-            const aprMtd = getMtdTotal(aprCum, currentDay);
-            const mayMtd = getMtdTotal(mayCum, currentDay);
-            const junMtd = getMtdTotal(junCum, currentDay);
+            const julMtd = getMtdTotal(julCum, currentDay);
+            const augMtd = getMtdTotal(augCum, currentDay);
+            const sepMtd = getMtdTotal(sepCum, currentDay);
 
             // 4. Print numbers to the KPI Cards
-            document.getElementById('kpi-mtd-m1').innerText = aprMtd;
-            document.getElementById('kpi-mtd-m2').innerText = mayMtd;
-            document.getElementById('kpi-mtd-m3').innerText = junMtd;
+            document.getElementById('kpi-mtd-m1').innerText = julMtd;
+            document.getElementById('kpi-mtd-m2').innerText = augMtd;
+            document.getElementById('kpi-mtd-m3').innerText = sepMtd;
 
             // 5. Calculate and style the variations
             const calcVar = (current, previous, elementId) => {
@@ -957,8 +954,8 @@
                 }
             };
 
-            calcVar(mayMtd, aprMtd, 'var-mtd-m2');
-            calcVar(junMtd, mayMtd, 'var-mtd-m3');
+            calcVar(augMtd, julMtd, 'var-mtd-m2');
+            calcVar(sepMtd, augMtd, 'var-mtd-m3');
 
             // 6. Draw Cumulative Line Chart comparing the 3 months
             // Generate labels from Day 1 to Day 31
@@ -971,8 +968,8 @@
                     labels: daysLabels,
                     datasets: [
                         {
-                            label: 'Apr 2026',
-                            data: aprCum,
+                            label: 'Jul 2026',
+                            data: julCum,
                             borderColor: '#cbd5e1', // Slate 300
                             backgroundColor: 'transparent',
                             borderWidth: 2,
@@ -981,8 +978,8 @@
                             tension: 0.3
                         },
                         {
-                            label: 'May 2026',
-                            data: mayCum,
+                            label: 'Aug 2026',
+                            data: augCum,
                             borderColor: '#94a3b8', // Slate 400
                             backgroundColor: 'transparent',
                             borderWidth: 2,
@@ -990,8 +987,8 @@
                             tension: 0.3
                         },
                         {
-                            label: 'Jun 2026 (Current)',
-                            data: junCum,
+                            label: 'Sep 2026 (Current)',
+                            data: sepCum,
                             borderColor: '#4f46e5', // Indigo 600
                             backgroundColor: 'rgba(79, 70, 229, 0.1)',
                             borderWidth: 4,
